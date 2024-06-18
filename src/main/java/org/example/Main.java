@@ -1,35 +1,58 @@
 package org.example;
 
-import org.example.script_pruebas.CargarEstaciones;
-
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        CargarEstaciones cargarEstaciones = new CargarEstaciones();
 
-        while (true) {
-            System.out.println("Menú:");
-            System.out.println("1. Cargar las estaciones");
-            System.out.println("2. Salir del programa");
-            System.out.print("Seleccione una opción: ");
-            int option = scanner.nextInt();
-            scanner.nextLine(); // Consumir el salto de línea
+        // Creación de algunas instancias de Station
+        Station station1 = new Station(0, "Baquedano", new Type("t"), 30);
+        Station station2 = new Station(1, "USACH", new Type("r"), 30);
+        Station station3 = new Station(2, "Estación Central", new Type("c"), 45);
+        Station station4 = new Station(3, "ULA", new Type("r"), 60);
+        Station station5 = new Station(4, "República", new Type("c"), 62);
+        Station station6 = new Station(5, "Los Héroes", new Type("r"), 25);
+        Station station7 = new Station(6, "Toesca", new Type("c"), 95);
+        Station station8 = new Station(7, "La Moneda", new Type("r"), 64);
+        Station station9 = new Station(8, "Cochera", new Type("c"), 26);
+        Station station10 = new Station(9, "Parque OHiggins", new Type("r"), 45);
+        Station station11 = new Station(10, "San Pablo", new Type("c"), 95);
+        Station station12 = new Station(11, "Los Dominicos", new Type("t"), 26);
 
-            switch (option) {
-                case 1:
-                    cargarEstaciones.start();
-                    break;
-                case 2:
-                    System.out.println("Saliendo del programa...");
-                    scanner.close();
-                    System.exit(0);
-                    break;
-                default:
-                    System.out.println("Opción no válida. Por favor, intente nuevamente.");
-            }
-        }
+        // Creación de instancias de Section
+        Section section1 = new Section(station1, station2, 10, 5);
+        Section section2 = new Section(station2, station3, 52, 20);
+        Section section3 = new Section(station3, station4, 32, 18);
+        Section section4 = new Section(station4, station5, 22, 12);
+        Section section5 = new Section(station5, station6, 18, 8);
+        Section section6 = new Section(station6, station7, 30, 15);
+        Section section7 = new Section(station7, station8, 12, 6);
+        Section section8 = new Section(station8, station9, 15, 7);
+        Section section9 = new Section(station9, station10, 28, 14);
+        Section section10 = new Section(station10, station11, 35, 16);
+        Section section11 = new Section(station11, station12, 42, 19);
+
+        // Creación de una instancia de Line con secciones iniciales
+        List<Section> initialSections = new ArrayList<>();
+        initialSections.add(section1);
+        initialSections.add(section2);
+        initialSections.add(section3);
+        initialSections.add(section4);
+        initialSections.add(section5);
+        initialSections.add(section6);
+        initialSections.add(section7);
+        initialSections.add(section8);
+        initialSections.add(section9);
+        initialSections.add(section10);
+        initialSections.add(section11);
+        Line line1 = new Line(1, "Linea 1", "UIC 60 ASCE", initialSections);
+        Line line6 = new Line(6, "Linea 6", "200 R.E.", new ArrayList<>());
+
+        // Mostrar la línea
+        System.out.println(line1);
+        System.out.println(line6);
+
     }
 }
