@@ -1,5 +1,6 @@
 package org.example;
 
+
 public class Type {
     String type;
     public Type(String type) {

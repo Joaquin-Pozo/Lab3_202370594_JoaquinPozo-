@@ -1,20 +1,35 @@
 package org.example;
-//import java.io.*;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import org.example.script_pruebas.CargarEstaciones;
+
+import java.util.Scanner;
+
 public class Main {
+
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        CargarEstaciones cargarEstaciones = new CargarEstaciones();
 
-        Type type = new Type("t");
+        while (true) {
+            System.out.println("Menú:");
+            System.out.println("1. Cargar las estaciones");
+            System.out.println("2. Salir del programa");
+            System.out.print("Seleccione una opción: ");
+            int option = scanner.nextInt();
+            scanner.nextLine(); // Consumir el salto de línea
 
-        Station estacion1 = new Station(0, "Estación Central", type, 20);
-
-        var id = estacion1.getId();
-        var name = estacion1.getName();
-        var stationType = estacion1.getStationType().getType();
-        var stopTime = estacion1.getStopTime();
-
-        System.out.println("Estación de metro:\nNombre: " + name + "\nId: " + id + "\nTiempo de parada: " + stopTime + "\nTipo de estación: " + stationType);
+            switch (option) {
+                case 1:
+                    cargarEstaciones.start();
+                    break;
+                case 2:
+                    System.out.println("Saliendo del programa...");
+                    scanner.close();
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Opción no válida. Por favor, intente nuevamente.");
+            }
         }
     }
+}

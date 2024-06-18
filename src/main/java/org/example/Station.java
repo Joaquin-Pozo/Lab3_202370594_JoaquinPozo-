@@ -1,10 +1,10 @@
 package org.example;
 
 public class Station {
-    int id;
-    String name;
-    Type stationType;
-    int stopTime;
+    private int id;
+    private String name;
+    private Type stationType;
+    private int stopTime;
 
     public Station(int id, String name, Type stationType, int stopTime) {
         this.id = id;
@@ -27,5 +27,15 @@ public class Station {
 
     public int getStopTime() {
         return stopTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Station{" +
+                "id = " + id +
+                ", name = '" + name + '\'' +
+                ", stationType = " + stationType.getType() +
+                ", stopTime = " + stopTime +
+                '}';
     }
 }
