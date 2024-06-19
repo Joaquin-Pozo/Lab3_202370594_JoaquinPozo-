@@ -21,10 +21,6 @@ public class Line {
         }
     }
 
-    public void addSection(Section section) {
-        sections.add(section);
-    }
-
     public List<Section> getSections() {
         return sections;
     }
@@ -80,6 +76,9 @@ public class Line {
         return costo;
     }
 
+    public void lineAddSection(Section section) {
+        sections.add(section);
+    }
 
 
 

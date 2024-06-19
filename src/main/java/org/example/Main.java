@@ -59,6 +59,11 @@ public class Main {
         String estacion3 = "USACH";
         String estacion4 = "Toesca";
         var costoEstaciones = line1.lineSectionCost(estacion3, estacion4);
+        // Req.8
+        line6.lineAddSection(section1);
+        line6.lineAddSection(section2);
+        line6.lineAddSection(section3);
+        line6.lineAddSection(section4);
 
         // Mostrar la línea
         System.out.println("Requerimiento 3:\n");
