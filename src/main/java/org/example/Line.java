@@ -35,20 +35,21 @@ public class Line {
 
     public int lineSectionLength(String station1Name, String station2Name) {
         List<Section> sections = getSections();
-        boolean contador = false;
+        boolean indicador = false;
         int len = 0;
 
         for (Section section : sections) {
             if (section.getPoint1().getName().equals(station1Name)) {
-                contador = true;
+                indicador = true;
             }
-            if (contador) {
+            if (indicador) {
                 len++;
             }
             if (section.getPoint2().getName().equals(station2Name)) {
                 break;
             }
-        } return len;
+        }
+        return len;
     }
 
     public int lineCost() {
@@ -56,6 +57,25 @@ public class Line {
         int costo = 0;
         for (Section section : sections) {
             costo = section.getCost() + costo;
+        }
+        return costo;
+    }
+
+    public int lineSectionCost(String station1Name, String station2Name) {
+        List<Section> sections = getSections();
+        boolean indicador = false;
+        int costo = 0;
+
+        for (Section section : sections) {
+            if (section.getPoint1().getName().equals(station1Name)) {
+                indicador = true;
+            }
+            if (indicador) {
+                costo = section.getCost() + costo;
+            }
+            if (section.getPoint2().getName().equals(station2Name)) {
+                break;
+            }
         }
         return costo;
     }

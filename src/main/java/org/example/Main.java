@@ -55,6 +55,10 @@ public class Main {
         int distancia = line1.lineSectionLength(estacion1, estacion2);
         // Req. 6
         var costoLinea1 = line1.lineCost();
+        // Req. 7
+        String estacion3 = "USACH";
+        String estacion4 = "Toesca";
+        var costoEstaciones = line1.lineSectionCost(estacion3, estacion4);
 
         // Mostrar la línea
         System.out.println("Requerimiento 3:\n");
@@ -66,6 +70,6 @@ public class Main {
         System.out.println("El largo de la línea 6 es: " + line6.lineLength());
         System.out.println("La Distancia entre " + estacion1 + " y " + estacion2 + " es: " + distancia);
         System.out.println("El costo de recorrer la línea 1 es: " + costoLinea1);
-
+        System.out.println("El costo entre " + estacion3 + " y " + estacion4 + " es: " + costoEstaciones);
     }
 }
