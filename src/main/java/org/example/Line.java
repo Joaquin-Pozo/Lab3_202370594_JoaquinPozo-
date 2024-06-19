@@ -29,6 +29,13 @@ public class Line {
         return sections;
     }
 
+    public int lineLength() {
+        return sections.size();
+    }
+
+
+
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

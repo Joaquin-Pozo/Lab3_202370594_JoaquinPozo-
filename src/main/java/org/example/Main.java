@@ -51,8 +51,13 @@ public class Main {
         Line line6 = new Line(6, "Linea 6", "200 R.E.", new ArrayList<>());
 
         // Mostrar la línea
+        System.out.println("Requerimiento 3:\n");
         System.out.println(line1);
         System.out.println(line6);
+        // Largo de secciones
+        System.out.println("\nRequerimiento 4:\n");
+        System.out.println("El largo de la línea 1 es: " + line1.lineLength());
+        System.out.println("El largo de la línea 6 es: " + line6.lineLength());
 
     }
 }
