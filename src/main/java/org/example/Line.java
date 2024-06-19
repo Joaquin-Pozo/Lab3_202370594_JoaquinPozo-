@@ -33,6 +33,24 @@ public class Line {
         return sections.size();
     }
 
+    public int lineSectionLength(String station1Name, String station2Name) {
+        List<Section> sections = getSections();
+        boolean contador = false;
+        int len = 0;
+
+        for (Section section : sections) {
+            if (section.getPoint1().getName().equals(station1Name)) {
+                contador = true;
+            }
+            if (contador) {
+                len++;
+            }
+            if (section.getPoint2().getName().equals(station2Name)) {
+                break;
+            }
+        } return len;
+    }
+
 
 
 
