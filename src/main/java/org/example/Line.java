@@ -51,6 +51,15 @@ public class Line {
         } return len;
     }
 
+    public int lineCost() {
+        List<Section> sections = getSections();
+        int costo = 0;
+        for (Section section : sections) {
+            costo = section.getCost() + costo;
+        }
+        return costo;
+    }
+
 
 
 

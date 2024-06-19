@@ -53,6 +53,8 @@ public class Main {
         String estacion1 = "Baquedano";
         String estacion2 = "Los Dominicos";
         int distancia = line1.lineSectionLength(estacion1, estacion2);
+        // Req. 6
+        var costoLinea1 = line1.lineCost();
 
         // Mostrar la línea
         System.out.println("Requerimiento 3:\n");
@@ -63,6 +65,7 @@ public class Main {
         System.out.println("El largo de la línea 1 es: " + line1.lineLength());
         System.out.println("El largo de la línea 6 es: " + line6.lineLength());
         System.out.println("La Distancia entre " + estacion1 + " y " + estacion2 + " es: " + distancia);
+        System.out.println("El costo de recorrer la línea 1 es: " + costoLinea1);
 
     }
 }
