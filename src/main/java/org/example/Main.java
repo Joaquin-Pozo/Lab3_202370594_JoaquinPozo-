@@ -112,6 +112,10 @@ public class Main {
         }
         // Req. 15 fetchCapacity
         System.out.println("La capacidad del train1 es: " + train1.fetchCapacity());
-
+        // Req. 16 Driver constructor
+        Driver driver1 = new Driver(0, "Tomás González", "CAF");
+        Driver driver2 = new Driver(1, "Marcela Aravena", "CAF");
+        Driver driver3 = new Driver(2, "Alicia González", "LCK");
+        System.out.println("Nuevos Drivers: " + driver1 + ", " + driver2 + ", " + driver3);
     }
 }
