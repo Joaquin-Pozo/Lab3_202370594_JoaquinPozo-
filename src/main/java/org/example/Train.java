@@ -42,6 +42,38 @@ public class Train {
         pcars.remove(position);
     }
 
+    public boolean isTrain() {
+        List <PassengerCar> pcars = getPcars();
+        boolean isTrue = true;
+        if (pcars == null) {
+            return false;
+        }
+        PassengerCar primero = pcars.get(0);
+        PassengerCar ultimo = pcars.get(pcars.size() - 1);
+        if (!primero.getCarType().getType().equals("tr") || !ultimo.getCarType().getType().equals("tr")) {
+            isTrue = false;
+        }
+        for (int i = 1; i < pcars.size() - 1; i++) {
+            if (!pcars.get(i).getCarType().getType().equals("ct")) {
+                isTrue = false;
+                break;
+            }
+        }
+        for (int i = 0; i < pcars.size(); i++) {
+            String model1 = pcars.get(i).getModel();
+            String trainMaker1 = pcars.get(i).getTrainMaker();
+            for (int j = 1; j < pcars.size() - 1; j++) {
+                String model2 = pcars.get(j).getModel();
+                String trainMaker2 = pcars.get(j).getTrainMaker();
+                if (!model1.equals(model2) || !trainMaker1.equals(trainMaker2)) {
+                    isTrue = false;
+                    break;
+                }
+            }
+        }
+        return isTrue;
+    }
+
 
 
     @Override

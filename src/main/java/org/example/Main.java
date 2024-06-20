@@ -94,14 +94,23 @@ public class Main {
 
         // Req. 11 creacion de train
         Train train1 = new Train(0, "CAF", 60, 100, new ArrayList<>());
+        // Req. 12 addCar
         train1.addPcar(pcar1, 0);
         train1.addPcar(pcar2, 1);
         train1.addPcar(pcar3, 2);
         train1.addPcar(pcar4, 3);
         train1.addPcar(pcar5, 4);
         train1.addPcar(pcar6, 5);
+        // Req. 13 removeCar
         train1.removePcar(train1, 0);
         System.out.println("Train 1: " + train1);
+
+        if (train1.isTrain()) {
+            System.out.println("train1 es un tren");
+        } else {
+            System.out.println("train1 no es un tren");
+        }
+
 
     }
 }

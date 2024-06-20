@@ -25,4 +25,24 @@ public class PassengerCar {
                 ", carType=" + carType +
                 '}';
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getPassengerCapacity() {
+        return passengerCapacity;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public String getTrainMaker() {
+        return trainMaker;
+    }
+
+    public CarType getCarType() {
+        return carType;
+    }
 }
