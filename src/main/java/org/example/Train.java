@@ -34,6 +34,15 @@ public class Train {
         pcars.add(position, pcar);
     }
 
+    public void removePcar(Train train, int position) {
+        List <PassengerCar> pcars = train.getPcars();
+        if (position < 0 || position > pcars.size()) {
+            throw new IndexOutOfBoundsException();
+        }
+        pcars.remove(position);
+    }
+
+
 
     @Override
     public String toString() {

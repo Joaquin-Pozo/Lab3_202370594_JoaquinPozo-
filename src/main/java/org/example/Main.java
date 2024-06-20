@@ -100,6 +100,7 @@ public class Main {
         train1.addPcar(pcar4, 3);
         train1.addPcar(pcar5, 4);
         train1.addPcar(pcar6, 5);
+        train1.removePcar(train1, 0);
         System.out.println("Train 1: " + train1);
 
     }
