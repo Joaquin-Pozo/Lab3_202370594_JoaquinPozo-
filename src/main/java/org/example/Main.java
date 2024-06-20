@@ -76,5 +76,11 @@ public class Main {
         System.out.println("La Distancia entre " + estacion1 + " y " + estacion2 + " es: " + distancia);
         System.out.println("El costo de recorrer la línea 1 es: " + costoLinea1);
         System.out.println("El costo entre " + estacion3 + " y " + estacion4 + " es: " + costoEstaciones);
+
+        if (line1.isLine(line1)) {
+            System.out.println("\nline1 es una línea");
+        } else {
+            System.out.println("\nline1 no es una línea");
+        }
     }
 }
