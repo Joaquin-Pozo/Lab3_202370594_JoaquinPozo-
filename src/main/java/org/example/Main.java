@@ -92,5 +92,15 @@ public class Main {
         PassengerCar pcar5 = new PassengerCar(4, 110, "NS-74", "CAF", new CarType("ct"));
         PassengerCar pcar6 = new PassengerCar(5, 90, "NS-74", "CAF", new CarType("tr"));
 
+        // Req. 11 creacion de train
+        Train train1 = new Train(0, "CAF", 60, 100, new ArrayList<>());
+        train1.addPcar(pcar1, 0);
+        train1.addPcar(pcar2, 1);
+        train1.addPcar(pcar3, 2);
+        train1.addPcar(pcar4, 3);
+        train1.addPcar(pcar5, 4);
+        train1.addPcar(pcar6, 5);
+        System.out.println("Train 1: " + train1);
+
     }
 }

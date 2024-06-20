@@ -10,4 +10,9 @@ public class CarType extends StationType {
     protected boolean isValidType(String type) {
         return type.equals("ct") || type.equals("tr");
     }
+
+    @Override
+    public String toString() {
+        return type;
+    }
 }
