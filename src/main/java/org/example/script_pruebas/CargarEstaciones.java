@@ -1,7 +1,7 @@
 package org.example.script_pruebas;
 
 import org.example.Station;
-import org.example.Type;
+import org.example.StationType;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -26,9 +26,9 @@ public class CargarEstaciones {
                 String name = parts[1].trim().replaceAll("^\"|\"$", ""); // Quitar comillas
                 String typeStr = parts[2].trim().replaceAll("^\"|\"$", "");
                 int stopTime = Integer.parseInt(parts[3].trim());
-                Type type = new Type(typeStr); // Crear instancia de Type
+                StationType stationType = new StationType(typeStr); // Crear instancia de Type
 
-                Station station = new Station(id, name, type, stopTime);
+                Station station = new Station(id, name, stationType, stopTime);
                 stations.add(station);
             }
             System.out.println("Estaciones cargadas correctamente.");

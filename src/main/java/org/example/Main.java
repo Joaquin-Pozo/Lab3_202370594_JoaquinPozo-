@@ -8,18 +8,18 @@ public class Main {
     public static void main(String[] args) {
 
         // Creación de algunas instancias de Station
-        Station station1 = new Station(0, "Baquedano", new Type("t"), 30);
-        Station station2 = new Station(1, "USACH", new Type("r"), 30);
-        Station station3 = new Station(2, "Estación Central", new Type("c"), 45);
-        Station station4 = new Station(3, "ULA", new Type("r"), 60);
-        Station station5 = new Station(4, "República", new Type("c"), 62);
-        Station station6 = new Station(5, "Los Héroes", new Type("r"), 25);
-        Station station7 = new Station(6, "Toesca", new Type("c"), 95);
-        Station station8 = new Station(7, "La Moneda", new Type("r"), 64);
-        Station station9 = new Station(8, "Cochera", new Type("c"), 26);
-        Station station10 = new Station(9, "Parque OHiggins", new Type("r"), 45);
-        Station station11 = new Station(10, "San Pablo", new Type("c"), 95);
-        Station station12 = new Station(11, "Los Dominicos", new Type("t"), 26);
+        Station station1 = new Station(0, "Baquedano", new StationType("t"), 30);
+        Station station2 = new Station(1, "USACH", new StationType("r"), 30);
+        Station station3 = new Station(2, "Estación Central", new StationType("c"), 45);
+        Station station4 = new Station(3, "ULA", new StationType("r"), 60);
+        Station station5 = new Station(4, "República", new StationType("c"), 62);
+        Station station6 = new Station(5, "Los Héroes", new StationType("r"), 25);
+        Station station7 = new Station(6, "Toesca", new StationType("c"), 95);
+        Station station8 = new Station(7, "La Moneda", new StationType("r"), 64);
+        Station station9 = new Station(8, "Cochera", new StationType("c"), 26);
+        Station station10 = new Station(9, "Parque OHiggins", new StationType("r"), 45);
+        Station station11 = new Station(10, "San Pablo", new StationType("c"), 95);
+        Station station12 = new Station(11, "Los Dominicos", new StationType("t"), 26);
 
         // Creación de instancias de Section
         Section section1 = new Section(station1, station2, 10, 5);
@@ -77,10 +77,20 @@ public class Main {
         System.out.println("El costo de recorrer la línea 1 es: " + costoLinea1);
         System.out.println("El costo entre " + estacion3 + " y " + estacion4 + " es: " + costoEstaciones);
 
+        // Req. 9
         if (line1.isLine(line1)) {
             System.out.println("\nline1 es una línea");
         } else {
             System.out.println("\nline1 no es una línea");
         }
+
+        // Req. 10 creacion de PCar
+        PassengerCar pcar1 = new PassengerCar(0, 90, "NS-74", "CAF", new CarType("tr"));
+        PassengerCar pcar2 = new PassengerCar(1, 120, "NS-74", "CAF", new CarType("ct"));
+        PassengerCar pcar3 = new PassengerCar(2, 100, "NS-74", "CAF", new CarType("ct"));
+        PassengerCar pcar4 = new PassengerCar(3, 130, "NS-74", "CAF", new CarType("ct"));
+        PassengerCar pcar5 = new PassengerCar(4, 110, "NS-74", "CAF", new CarType("ct"));
+        PassengerCar pcar6 = new PassengerCar(5, 90, "NS-74", "CAF", new CarType("tr"));
+
     }
 }

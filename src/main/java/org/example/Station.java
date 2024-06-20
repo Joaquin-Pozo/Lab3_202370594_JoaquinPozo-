@@ -3,10 +3,10 @@ package org.example;
 public class Station {
     private int id;
     private String name;
-    private Type stationType;
+    private StationType stationType;
     private int stopTime;
 
-    public Station(int id, String name, Type stationType, int stopTime) {
+    public Station(int id, String name, StationType stationType, int stopTime) {
         this.id = id;
         this.name = name;
         this.stationType = stationType;
@@ -21,7 +21,7 @@ public class Station {
         return name;
     }
 
-    public Type getStationType() {
+    public StationType getStationType() {
         return stationType;
     }
 
