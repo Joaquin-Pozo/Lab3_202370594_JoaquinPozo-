@@ -104,13 +104,14 @@ public class Main {
         // Req. 13 removeCar
         train1.removePcar(train1, 0);
         System.out.println("Train 1: " + train1);
-
+        // Req. 14 isTrain
         if (train1.isTrain()) {
             System.out.println("train1 es un tren");
         } else {
             System.out.println("train1 no es un tren");
         }
-
+        // Req. 15 fetchCapacity
+        System.out.println("La capacidad del train1 es: " + train1.fetchCapacity());
 
     }
 }

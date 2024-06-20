@@ -74,6 +74,15 @@ public class Train {
         return isTrue;
     }
 
+    public int fetchCapacity() {
+        List<PassengerCar> pcars = getPcars();
+        int capacity = 0;
+        for (PassengerCar pcar : pcars) {
+            capacity = pcar.getPassengerCapacity() + capacity;
+        }
+        return capacity;
+    }
+
 
 
     @Override
