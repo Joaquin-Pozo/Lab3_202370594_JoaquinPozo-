@@ -1,4 +1,7 @@
 package org.example;
+import java.util.ArrayList;
+import java.util.List;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,9 +94,16 @@ public class Main {
         PassengerCar pcar4 = new PassengerCar(3, 130, "NS-74", "CAF", new CarType("ct"));
         PassengerCar pcar5 = new PassengerCar(4, 110, "NS-74", "CAF", new CarType("ct"));
         PassengerCar pcar6 = new PassengerCar(5, 90, "NS-74", "CAF", new CarType("tr"));
+        PassengerCar pcar7 = new PassengerCar(6, 90, "AS-62", "LCK", new CarType("tr"));
+        PassengerCar pcar8 = new PassengerCar(7, 120, "AS-62", "LCK", new CarType("ct"));
+        PassengerCar pcar9 = new PassengerCar(8, 100, "AS-62", "LCK", new CarType("ct"));
+        PassengerCar pcar10 = new PassengerCar(9, 130, "AS-62", "LCK", new CarType("ct"));
+        PassengerCar pcar11 = new PassengerCar(10, 110, "AS-62", "LCK", new CarType("ct"));
+        PassengerCar pcar12 = new PassengerCar(11, 90, "AS-62", "LCK", new CarType("tr"));
 
         // Req. 11 creacion de train
         Train train1 = new Train(0, "CAF", 60, 100, new ArrayList<>());
+        Train train2 = new Train(1, "LCK", 80, 70, new ArrayList<>());
         // Req. 12 addCar
         train1.addPcar(pcar1, 0);
         train1.addPcar(pcar2, 1);
@@ -101,6 +111,12 @@ public class Main {
         train1.addPcar(pcar4, 3);
         train1.addPcar(pcar5, 4);
         train1.addPcar(pcar6, 5);
+        train2.addPcar(pcar7, 0);
+        train2.addPcar(pcar8, 1);
+        train2.addPcar(pcar9, 2);
+        train2.addPcar(pcar10, 3);
+        train2.addPcar(pcar11, 4);
+        train2.addPcar(pcar12, 5);
         // Req. 13 removeCar
         train1.removePcar(train1, 0);
         System.out.println("Train 1: " + train1);
@@ -110,6 +126,7 @@ public class Main {
         } else {
             System.out.println("train1 no es un tren");
         }
+        train1.addPcar(pcar1, 0);
         // Req. 15 fetchCapacity
         System.out.println("La capacidad del train1 es: " + train1.fetchCapacity());
         // Req. 16 Driver constructor
@@ -117,5 +134,13 @@ public class Main {
         Driver driver2 = new Driver(1, "Marcela Aravena", "CAF");
         Driver driver3 = new Driver(2, "Alicia González", "LCK");
         System.out.println("Nuevos Drivers: " + driver1 + ", " + driver2 + ", " + driver3);
+        // Req. 17 Subway constructor
+        Subway metro = new Subway(0, "Red de Metro Santiago");
+        // Req. 18 Subway - addTrain
+        metro.addTrain(train1, train2);
+        System.out.println("Metro de Santiago: " + metro);
+
+
+
     }
 }

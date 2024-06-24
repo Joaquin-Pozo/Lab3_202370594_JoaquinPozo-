@@ -26,6 +26,10 @@ public class Train {
         return pcars;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public void addPcar(PassengerCar pcar, int position) {
         List<PassengerCar> pcars = getPcars();
         if (position < 0 || position > pcars.size()) {
