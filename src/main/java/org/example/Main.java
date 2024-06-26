@@ -23,6 +23,17 @@ public class Main {
         Station station10 = new Station(9, "Parque OHiggins", new StationType("r"), 45);
         Station station11 = new Station(10, "San Pablo", new StationType("c"), 95);
         Station station12 = new Station(11, "Los Dominicos", new StationType("t"), 26);
+        // Creacion de instancias para nuevas estaciones -- Linea 6 simplificada
+        Station station13 = new Station(12, "Cerrillos", new StationType("t"), 26);
+        Station station14 = new Station(13, "Lo Valledor", new StationType("r"), 12);
+        Station station15 = new Station(14, "Pdte. Pedro Aguirre Cerda", new StationType("c"), 52);
+        Station station16 = new Station(15, "Franklin", new StationType("m"), 56);
+        Station station17 = new Station(16, "Biobío", new StationType("c"), 48);
+        Station station18 = new Station(17, "Ñuble", new StationType("r"), 59);
+        Station station19 = new Station(18, "Estadio Nacional", new StationType("m"), 78);
+        Station station20 = new Station(19, "Ñuñoa", new StationType("r"), 95);
+        Station station21 = new Station(20, "Inés de Suárez", new StationType("c"), 78);
+        Station station22 = new Station(21, "Los Leones", new StationType("t"), 26);
 
         // Creación de instancias de Section
         Section section1 = new Section(station1, station2, 10, 5);
@@ -37,6 +48,17 @@ public class Main {
         Section section10 = new Section(station10, station11, 35, 16);
         Section section11 = new Section(station11, station12, 42, 19);
 
+        // Instancias Section para L6
+        Section section12 = new Section(station13, station14, 29, 26);
+        Section section13 = new Section(station14, station15, 67, 18);
+        Section section14 = new Section(station15, station16, 98, 29);
+        Section section15 = new Section(station16, station17, 26, 29);
+        Section section16 = new Section(station17, station18, 52, 12);
+        Section section17 = new Section(station18, station19, 29, 25);
+        Section section18 = new Section(station19, station20, 79, 15);
+        Section section19 = new Section(station20, station21, 53, 19);
+        Section section20 = new Section(station21, station22, 84, 52);
+
         // Creación de una instancia de Line con secciones iniciales
         List<Section> initialSections = new ArrayList<>();
         initialSections.add(section1);
@@ -50,8 +72,21 @@ public class Main {
         initialSections.add(section9);
         initialSections.add(section10);
         initialSections.add(section11);
+
+        // Creacion de instancia Line para L6
+        List<Section> line6Sections = new ArrayList<>();
+        line6Sections.add(section12);
+        line6Sections.add(section13);
+        line6Sections.add(section14);
+        line6Sections.add(section15);
+        line6Sections.add(section16);
+        line6Sections.add(section17);
+        line6Sections.add(section18);
+        line6Sections.add(section19);
+        line6Sections.add(section20);
+
         Line line1 = new Line(1, "Linea 1", "UIC 60 ASCE", initialSections);
-        Line line6 = new Line(6, "Linea 6", "200 R.E.", new ArrayList<>());
+        Line line6 = new Line(6, "Linea 6", "200 R.E.", line6Sections);
         // Req. 5
         String estacion1 = "Baquedano";
         String estacion2 = "Los Dominicos";
@@ -139,6 +174,10 @@ public class Main {
         // Req. 18 Subway - addTrain
         metro.addTrain(train1, train2);
         System.out.println("Metro de Santiago: " + metro);
+        // Req. 19 Subway - addLine
+        metro.addLine(line1);
+        metro.addLine(line6);
+        System.out.println("\n" + metro);
 
 
 

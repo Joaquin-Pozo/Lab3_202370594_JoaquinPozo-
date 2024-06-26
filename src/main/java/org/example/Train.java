@@ -91,13 +91,13 @@ public class Train {
 
     @Override
     public String toString() {
-        return "Train{" +
+        return "\nTrain{" +
                 "id=" + id +
                 ", trainMaker='" + trainMaker + '\'' +
                 ", speed=" + speed +
                 ", stationStayTime=" + stationStayTime +
                 ", pcars=" + pcars +
-                '}';
+                "\n}";
     }
 }
 

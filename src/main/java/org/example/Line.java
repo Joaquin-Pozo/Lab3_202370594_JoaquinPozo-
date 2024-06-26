@@ -112,12 +112,16 @@ public class Line {
         } return isTrue;
     }
 
+    public int getId() {
+        return this.id;
+    }
+
 
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Line{id=").append(id);
+        sb.append("\nLine{id=").append(id);
         sb.append(", name='").append(name).append('\'');
         sb.append(", railType='").append(railType).append('\'');
         sb.append(", sections=[");
@@ -131,7 +135,7 @@ public class Line {
         if (!sections.isEmpty()) {
             sb.delete(sb.length() - 2, sb.length()); // Elimina la última coma y espacio
         }
-        sb.append("]}");
+        sb.append("]\n}");
         return sb.toString();
     }
 }
