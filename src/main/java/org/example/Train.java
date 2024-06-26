@@ -63,10 +63,10 @@ public class Train {
                 break;
             }
         }
-        for (int i = 0; i < pcars.size(); i++) {
+        for (int i = 0; i < pcars.size() - 1; i++) {
             String model1 = pcars.get(i).getModel();
             String trainMaker1 = pcars.get(i).getTrainMaker();
-            for (int j = 1; j < pcars.size() - 1; j++) {
+            for (int j = 1; j < pcars.size(); j++) {
                 String model2 = pcars.get(j).getModel();
                 String trainMaker2 = pcars.get(j).getTrainMaker();
                 if (!model1.equals(model2) || !trainMaker1.equals(trainMaker2)) {

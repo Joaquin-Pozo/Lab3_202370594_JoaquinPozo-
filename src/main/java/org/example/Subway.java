@@ -46,17 +46,6 @@ public class Subway {
                 throw new IllegalArgumentException();
             }
         }
-        for (Train newTrain : newTrains) {
-            trains.add(newTrain);
-        }
-    }
-
-    @Override
-    public String toString() {
-        return "Subway{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", trains=" + trains +
-                '}';
+        trains.addAll(List.of(newTrains));
     }
 }

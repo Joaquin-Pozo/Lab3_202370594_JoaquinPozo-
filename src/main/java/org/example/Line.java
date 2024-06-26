@@ -1,7 +1,9 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Line {
 
@@ -80,7 +82,7 @@ public class Line {
     public boolean isLine(Line line) {
         List<Section> sections = line.getSections();
         boolean isTrue = true;
-        for (int i = 0; i < sections.size(); i++) {
+        for (int i = 0; i < sections.size() - 1; i++) {
             String station1Name = sections.get(i).getPoint1().getName();
             String station2Name = sections.get(i).getPoint2().getName();
             int station1Id = sections.get(i).getPoint1().getId();
@@ -93,7 +95,7 @@ public class Line {
                 isTrue = false;
                 break;
             }
-            for (int j = i + 1; j < sections.size() - 1; j++) {
+            for (int j = i + 1; j < sections.size(); j++) {
                 String station3Name = sections.get(j).getPoint1().getName();
                 String station4Name = sections.get(j).getPoint2().getName();
                 int station3Id = sections.get(j).getPoint1().getId();
