@@ -11,6 +11,7 @@ public class Subway {
     private List<Train> trains;
     private List<Line> lines;
     private List<Driver> drivers;
+    private List<Route> routes;
 
     public Subway(int id, String name) {
         this.id = id;
@@ -18,6 +19,7 @@ public class Subway {
         this.trains = new ArrayList<>();
         this.lines = new ArrayList<>();
         this.drivers = new ArrayList<>();
+        this.routes = new ArrayList<>();
     }
 
     public int getId() {
@@ -77,6 +79,28 @@ public class Subway {
         drivers.addAll(List.of(newDrivers));
     }
 
+    public void assignTrainToLine(int trainId, int lineId) {
+        // compruebo que exista el id de la linea ingresado
+        Set<Integer> lineIds = new HashSet<>();
+        for (Line line : lines) {
+            lineIds.add(line.getId());
+        }
+        if (!lineIds.contains(lineId)) {
+            throw new IllegalArgumentException("Línea inválida");
+        }
+        // compruebo que exista el id del tren ingresado
+        Set<Integer> trainIds = new HashSet<>();
+        for (Train train : trains) {
+            trainIds.add(train.getId());
+        }
+        if (!trainIds.contains(trainId)) {
+            throw new IllegalArgumentException("Tren inválido");
+        }
+        // asigno el tren a la linea
+        routes.add(new Route(trainId, lineId));
+
+    }
+
 
     @Override
     public String toString() {
@@ -91,6 +115,7 @@ public class Subway {
                 "\nlines = " + lines +
                 "\n*********************************************************************************************************************************************************\n" +
                 "\ndrivers = " + drivers +
+                "\nroutes = " + routes +
                 '}' +
                 "\n*********************************************************************************************************************************************************\n" +
                 "*********************************************************************************************************************************************************\n";
