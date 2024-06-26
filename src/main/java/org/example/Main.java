@@ -177,9 +177,9 @@ public class Main {
         // Req. 19 Subway - addLine
         metro.addLine(line1);
         metro.addLine(line6);
+        // Req. 20 subway - addDriver
+        metro.addDriver(driver1, driver2, driver3);
         System.out.println("\n" + metro);
-
-
 
     }
 }

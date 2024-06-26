@@ -10,12 +10,14 @@ public class Subway {
     private String name;
     private List<Train> trains;
     private List<Line> lines;
+    private List<Driver> drivers;
 
     public Subway(int id, String name) {
         this.id = id;
         this.name = name;
         this.trains = new ArrayList<>();
         this.lines = new ArrayList<>();
+        this.drivers = new ArrayList<>();
     }
 
     public int getId() {
@@ -60,13 +62,30 @@ public class Subway {
         lines.addAll(List.of(newLines));
     }
 
+    public void addDriver(Driver... newDrivers) {
+        Set<Integer> driverIds = new HashSet<>();
+
+        for (Driver driver: drivers) {
+            driverIds.add(driver.getId());
+        }
+        Set<Integer> newDriverIds = new HashSet<>();
+        for (Driver newDriver : newDrivers) {
+            if (driverIds.contains(newDriver.getId()) || !newDriverIds.add(newDriver.getId())) {
+                throw new IllegalArgumentException("Conductor inválido");
+            }
+        }
+        drivers.addAll(List.of(newDrivers));
+    }
+
+
     @Override
     public String toString() {
         return "Subway{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", \n\ntrains=" + trains +
-                "\n\n, lines=" + lines +
+                ", trains=" + trains +
+                ", lines=" + lines +
+                ", drivers=" + drivers +
                 '}';
     }
 }

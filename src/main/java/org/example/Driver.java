@@ -25,10 +25,10 @@ public class Driver {
 
     @Override
     public String toString() {
-        return "{" +
+        return "\n{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", trainMaker='" + trainMaker + '\'' +
-                '}';
+                "\n}";
     }
 }
