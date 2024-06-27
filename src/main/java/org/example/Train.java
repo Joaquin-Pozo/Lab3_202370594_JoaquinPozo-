@@ -30,6 +30,10 @@ public class Train {
         return id;
     }
 
+    public String getTrainMaker() {
+        return trainMaker;
+    }
+
     public void addPcar(PassengerCar pcar, int position) {
         List<PassengerCar> pcars = getPcars();
         if (position < 0 || position > pcars.size()) {

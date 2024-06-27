@@ -1,8 +1,5 @@
 package org.example;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Subway {
 
@@ -98,9 +95,45 @@ public class Subway {
         }
         // asigno el tren a la linea
         routes.add(new Route(trainId, lineId));
-
     }
 
+    public void assignDriverToTrain(int trainId, int driverId, Date departureTime, int departureStation, int arrivalStation) {
+
+        String trainMaker = "";
+        for (Train train : trains) {
+            if (train.getId() == trainId) {
+                trainMaker = train.getTrainMaker();
+            }
+        }
+        // compruebo que el id del tren exista
+        if (trainMaker.isEmpty()) {
+            throw new IllegalArgumentException("Tren id inválido");
+        }
+        String driverTrainMaker = "";
+        for (Driver driver : drivers) {
+            if (driver.getId() == driverId) {
+                driverTrainMaker = driver.getTrainMaker();
+            }
+        }
+        // compruebo que el id del driver exista
+        if (driverTrainMaker.isEmpty()) {
+            throw new IllegalArgumentException("Driver id inválido");
+        }
+        // compruebo que el trainMaker sea el mismo
+        if (!trainMaker.equals(driverTrainMaker)) {
+            throw new IllegalArgumentException("El train maker del tren y del driver no coinciden");
+        }
+
+        // asigno drivers a una ruta ya creada previamente en assignTrainToLine
+        for (Route route: routes) {
+            if (route.getTrainId() == trainId) {
+                route.setDriverId(driverId);
+                route.setDepartureTime(departureTime);
+                route.setDepartureStation(departureStation);
+                route.setArrivalStation(arrivalStation);
+            }
+        }
+    }
 
     @Override
     public String toString() {

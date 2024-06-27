@@ -1,6 +1,6 @@
 package org.example;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalTime;
+import java.util.*;
 
 
 import java.util.ArrayList;
@@ -173,7 +173,6 @@ public class Main {
         Subway metro = new Subway(0, "Red de Metro Santiago");
         // Req. 18 Subway - addTrain
         metro.addTrain(train1, train2);
-        System.out.println("Metro de Santiago: " + metro);
         // Req. 19 Subway - addLine
         metro.addLine(line1);
         metro.addLine(line6);
@@ -182,6 +181,10 @@ public class Main {
         // Req. 22 assignTrainToLine
         metro.assignTrainToLine(0, 1);
         metro.assignTrainToLine(1, 6);
+        // Req. 23 assignDriverToTrain
+        LocalTime localTime = LocalTime.of(12, 0);
+        metro.assignDriverToTrain(0, 1, new Date(), 2, 9);
+        metro.assignDriverToTrain(1, 2, new Date(), 12, 21);
         System.out.println("\n" + metro);
 
     }

@@ -39,6 +39,22 @@ public class Route {
         return arrivalStation;
     }
 
+    public void setDriverId(int driverId) {
+        this.driverId = driverId;
+    }
+
+    public void setDepartureTime(Date departureTime) {
+        this.departureTime = departureTime;
+    }
+
+    public void setDepartureStation(int departureStation) {
+        this.departureStation = departureStation;
+    }
+
+    public void setArrivalStation(int arrivalStation) {
+        this.arrivalStation = arrivalStation;
+    }
+
     @Override
     public String toString() {
         return "\nRoute{" +
