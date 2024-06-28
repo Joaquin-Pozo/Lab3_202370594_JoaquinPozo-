@@ -135,6 +135,41 @@ public class Subway {
         }
     }
 
+    public void whereIsTrain(int trainId, Date time) {
+        boolean isTrainInRoute = false;
+        int lineId;
+        for (Route route : routes) {
+            if (route.getTrainId() == trainId) {
+                lineId = route.getLineId();
+                isTrainInRoute = true;
+                break;
+            }
+        }
+        if (!isTrainInRoute) {
+            throw new IllegalArgumentException("Tren id inválido");
+        }
+        boolean isTrainInSubway = false;
+        for (Train train : trains) {
+            if (train.getId() == trainId) {
+                isTrainInSubway = true;
+                break;
+            }
+        }
+        if (!isTrainInSubway) {
+            throw new IllegalArgumentException("Tren id inválido");
+        }
+        for (Line line : lines) {
+            if (line.getId() == lineId) {
+                for (int i = 0; i < line.getSections().size(); i++) {
+
+                }
+            }
+        }
+
+
+    }
+
+
     @Override
     public String toString() {
         return "*********************************************************************************************************************************************************\n" +

@@ -23,6 +23,10 @@ public class Route {
         return trainId;
     }
 
+    public int getLineId() {
+        return lineId;
+    }
+
     public int getDriverId() {
         return driverId;
     }
