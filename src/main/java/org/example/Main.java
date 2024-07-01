@@ -13,53 +13,53 @@ public class Main {
     public static void main(String[] args) {
 
         // Creación de algunas instancias de Station
-        Station station1 = new Station(0, "Baquedano", new StationType("t"), 30);
-        Station station2 = new Station(1, "USACH", new StationType("r"), 30);
-        Station station3 = new Station(2, "Estación Central", new StationType("c"), 45);
-        Station station4 = new Station(3, "ULA", new StationType("r"), 60);
-        Station station5 = new Station(4, "República", new StationType("c"), 62);
-        Station station6 = new Station(5, "Los Héroes", new StationType("r"), 25);
-        Station station7 = new Station(6, "Toesca", new StationType("c"), 95);
-        Station station8 = new Station(7, "La Moneda", new StationType("r"), 64);
-        Station station9 = new Station(8, "Cochera", new StationType("c"), 26);
-        Station station10 = new Station(9, "Parque OHiggins", new StationType("r"), 45);
-        Station station11 = new Station(10, "San Pablo", new StationType("c"), 95);
-        Station station12 = new Station(11, "Los Dominicos", new StationType("t"), 26);
+        Station station1 = new Station(0, "Baquedano", new StationType("t"), 330);
+        Station station2 = new Station(1, "USACH", new StationType("r"), 360);
+        Station station3 = new Station(2, "Estación Central", new StationType("c"), 495);
+        Station station4 = new Station(3, "ULA", new StationType("r"), 650);
+        Station station5 = new Station(4, "República", new StationType("c"), 692);
+        Station station6 = new Station(5, "Los Héroes", new StationType("r"), 295);
+        Station station7 = new Station(6, "Toesca", new StationType("c"), 955);
+        Station station8 = new Station(7, "La Moneda", new StationType("r"), 694);
+        Station station9 = new Station(8, "Cochera", new StationType("c"), 256);
+        Station station10 = new Station(9, "Parque OHiggins", new StationType("r"), 452);
+        Station station11 = new Station(10, "San Pablo", new StationType("c"), 955);
+        Station station12 = new Station(11, "Los Dominicos", new StationType("t"), 264);
         // Creacion de instancias para nuevas estaciones -- Linea 6 simplificada
-        Station station13 = new Station(12, "Cerrillos", new StationType("t"), 26);
-        Station station14 = new Station(13, "Lo Valledor", new StationType("r"), 12);
-        Station station15 = new Station(14, "Pdte. Pedro Aguirre Cerda", new StationType("c"), 52);
-        Station station16 = new Station(15, "Franklin", new StationType("m"), 56);
-        Station station17 = new Station(16, "Biobío", new StationType("c"), 48);
-        Station station18 = new Station(17, "Ñuble", new StationType("r"), 59);
-        Station station19 = new Station(18, "Estadio Nacional", new StationType("m"), 78);
-        Station station20 = new Station(19, "Ñuñoa", new StationType("r"), 95);
-        Station station21 = new Station(20, "Inés de Suárez", new StationType("c"), 78);
-        Station station22 = new Station(21, "Los Leones", new StationType("t"), 26);
+        Station station13 = new Station(12, "Cerrillos", new StationType("t"), 269);
+        Station station14 = new Station(13, "Lo Valledor", new StationType("r"), 112);
+        Station station15 = new Station(14, "Pdte. Pedro Aguirre Cerda", new StationType("c"), 552);
+        Station station16 = new Station(15, "Franklin", new StationType("m"), 569);
+        Station station17 = new Station(16, "Biobío", new StationType("c"), 482);
+        Station station18 = new Station(17, "Ñuble", new StationType("r"), 592);
+        Station station19 = new Station(18, "Estadio Nacional", new StationType("m"), 782);
+        Station station20 = new Station(19, "Ñuñoa", new StationType("r"), 953);
+        Station station21 = new Station(20, "Inés de Suárez", new StationType("c"), 781);
+        Station station22 = new Station(21, "Los Leones", new StationType("t"), 226);
 
         // Creación de instancias de Section
-        Section section1 = new Section(station1, station2, 10, 5);
-        Section section2 = new Section(station2, station3, 52, 20);
-        Section section3 = new Section(station3, station4, 32, 18);
-        Section section4 = new Section(station4, station5, 22, 12);
-        Section section5 = new Section(station5, station6, 18, 8);
-        Section section6 = new Section(station6, station7, 30, 15);
-        Section section7 = new Section(station7, station8, 12, 6);
-        Section section8 = new Section(station8, station9, 15, 7);
-        Section section9 = new Section(station9, station10, 28, 14);
-        Section section10 = new Section(station10, station11, 35, 16);
-        Section section11 = new Section(station11, station12, 42, 19);
+        Section section1 = new Section(station1, station2, 100, 5);
+        Section section2 = new Section(station2, station3, 520, 20);
+        Section section3 = new Section(station3, station4, 326, 18);
+        Section section4 = new Section(station4, station5, 223, 12);
+        Section section5 = new Section(station5, station6, 182, 8);
+        Section section6 = new Section(station6, station7, 309, 15);
+        Section section7 = new Section(station7, station8, 121, 6);
+        Section section8 = new Section(station8, station9, 159, 7);
+        Section section9 = new Section(station9, station10, 282, 14);
+        Section section10 = new Section(station10, station11, 356, 16);
+        Section section11 = new Section(station11, station12, 426, 19);
 
         // Instancias Section para L6
-        Section section12 = new Section(station13, station14, 29, 26);
-        Section section13 = new Section(station14, station15, 67, 18);
-        Section section14 = new Section(station15, station16, 98, 29);
-        Section section15 = new Section(station16, station17, 26, 29);
-        Section section16 = new Section(station17, station18, 52, 12);
-        Section section17 = new Section(station18, station19, 29, 25);
-        Section section18 = new Section(station19, station20, 79, 15);
-        Section section19 = new Section(station20, station21, 53, 19);
-        Section section20 = new Section(station21, station22, 84, 52);
+        Section section12 = new Section(station13, station14, 299, 26);
+        Section section13 = new Section(station14, station15, 672, 18);
+        Section section14 = new Section(station15, station16, 948, 29);
+        Section section15 = new Section(station16, station17, 266, 29);
+        Section section16 = new Section(station17, station18, 512, 12);
+        Section section17 = new Section(station18, station19, 299, 25);
+        Section section18 = new Section(station19, station20, 729, 15);
+        Section section19 = new Section(station20, station21, 593, 19);
+        Section section20 = new Section(station21, station22, 894, 52);
 
         // Creación de una instancia de Line con secciones iniciales
         List<Section> initialSections = new ArrayList<>();
@@ -139,8 +139,8 @@ public class Main {
         PassengerCar pcar12 = new PassengerCar(11, 90, "AS-62", "LCK", new CarType("tr"));
 
         // Req. 11 creacion de train
-        Train train1 = new Train(0, "CAF", 60, 100, new ArrayList<>());
-        Train train2 = new Train(1, "LCK", 80, 70, new ArrayList<>());
+        Train train1 = new Train(0, "CAF", 20, 709, new ArrayList<>());
+        Train train2 = new Train(1, "LCK", 30, 950, new ArrayList<>());
         // Req. 12 addCar
         train1.addPcar(pcar1, 0);
         train1.addPcar(pcar2, 1);
@@ -194,8 +194,22 @@ public class Main {
 
         // Obtén la fecha y hora combinadas en una instancia de Date
         Date time = calendar.getTime();
-        metro.assignDriverToTrain(0, 1, time, 2, 9);
+        metro.assignDriverToTrain(0, 1, time, 0, 11);
         metro.assignDriverToTrain(1, 2, time, 12, 21);
         System.out.println("\n" + metro);
+
+        // Req. 24 whereIsTrain
+        Calendar calendarConsult = new GregorianCalendar();
+
+        // Establece la hora específica: por ejemplo, 16:00:00
+        calendarConsult.set(Calendar.HOUR_OF_DAY, 16);
+        calendarConsult.set(Calendar.MINUTE, 0);
+        calendarConsult.set(Calendar.SECOND, 0);
+        calendarConsult.set(Calendar.MILLISECOND, 0);
+        // Obtén la fecha y hora combinadas en una instancia de Date
+        Date timeConsult = calendarConsult.getTime();
+
+        String whereIsTrain = metro.whereIsTrain(0, timeConsult);
+        System.out.println("\n" + whereIsTrain);
     }
 }

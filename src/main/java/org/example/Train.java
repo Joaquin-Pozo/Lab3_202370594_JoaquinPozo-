@@ -34,6 +34,14 @@ public class Train {
         return trainMaker;
     }
 
+    public int getSpeed() {
+        return speed;
+    }
+
+    public int getStationStayTime() {
+        return stationStayTime;
+    }
+
     public void addPcar(PassengerCar pcar, int position) {
         List<PassengerCar> pcars = getPcars();
         if (position < 0 || position > pcars.size()) {
