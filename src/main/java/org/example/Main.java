@@ -1,4 +1,6 @@
 package org.example;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.*;
 
@@ -182,10 +184,18 @@ public class Main {
         metro.assignTrainToLine(0, 1);
         metro.assignTrainToLine(1, 6);
         // Req. 23 assignDriverToTrain
-        LocalTime localTime = LocalTime.of(12, 0);
-        metro.assignDriverToTrain(0, 1, new Date(), 2, 9);
-        metro.assignDriverToTrain(1, 2, new Date(), 12, 21);
-        System.out.println("\n" + metro);
+        Calendar calendar = new GregorianCalendar();
 
+        // Establece la hora específica: por ejemplo, 14:30:00
+        calendar.set(Calendar.HOUR_OF_DAY, 14);
+        calendar.set(Calendar.MINUTE, 30);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+
+        // Obtén la fecha y hora combinadas en una instancia de Date
+        Date time = calendar.getTime();
+        metro.assignDriverToTrain(0, 1, time, 2, 9);
+        metro.assignDriverToTrain(1, 2, time, 12, 21);
+        System.out.println("\n" + metro);
     }
 }

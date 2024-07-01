@@ -1,4 +1,5 @@
 package org.example;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Subway {
@@ -135,19 +136,29 @@ public class Subway {
         }
     }
 
-    public void whereIsTrain(int trainId, Date time) {
+    public String whereIsTrain(int trainId, Date time) {
+        // compruebo que el tren se encuentre en ruta y este asociada a una linea
+        int lineId = -1;
+        Date departureTime = null;
+        int arrivalStation;
+        int departureStation;
         boolean isTrainInRoute = false;
-        int lineId;
         for (Route route : routes) {
             if (route.getTrainId() == trainId) {
                 lineId = route.getLineId();
+                departureTime = route.getDepartureTime();
+                arrivalStation = route.getArrivalStation();
+                departureStation = route.getArrivalStation();
                 isTrainInRoute = true;
                 break;
             }
         }
         if (!isTrainInRoute) {
-            throw new IllegalArgumentException("Tren id inválido");
+            throw new IllegalArgumentException("No se encuentra un Tren asociado a una Ruta.");
+        } else if (lineId == -1) {
+            throw new IllegalArgumentException("No se encuentra una Línea asociada al Tren ingresado.");
         }
+        // compruebo que el tren exista en la red de metro
         boolean isTrainInSubway = false;
         for (Train train : trains) {
             if (train.getId() == trainId) {
@@ -156,17 +167,44 @@ public class Subway {
             }
         }
         if (!isTrainInSubway) {
-            throw new IllegalArgumentException("Tren id inválido");
+            throw new IllegalArgumentException("No se encuentra un Tren asociado a la red de metro.");
+        }
+        // convertir el tiempo de entrada a String y luego a segundos
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+        String timeInString = timeFormat.format(time);
+
+        // Divide la cadena para extraer horas, minutos y segundos
+        String[] parts = timeInString.split(":");
+        int horas = Integer.parseInt(parts[0]);
+        int minutos = Integer.parseInt(parts[1]);
+        int segundos = Integer.parseInt(parts[2]);
+
+        int totalSegundos = horas * 3600 + minutos * 60 + segundos;
+
+        // convertir el tiempo de partida de la Ruta a String y luego a segundos
+        SimpleDateFormat routeTimeFormat = new SimpleDateFormat("HH:mm:ss");
+        String routeTimeInString = timeFormat.format(departureTime);
+
+        // Divide la cadena para extraer horas, minutos y segundos
+        String[] routeParts = routeTimeInString.split(":");
+        int routeHoras = Integer.parseInt(routeParts[0]);
+        int routeMinutos = Integer.parseInt(routeParts[1]);
+        int routeSegundos = Integer.parseInt(routeParts[2]);
+
+        int totalRouteSegundos = routeHoras * 3600 + routeMinutos * 60 + routeSegundos;
+
+        int timeInRoute = totalSegundos - totalRouteSegundos;
+
+        if (timeInRoute <= 0) {
+            return "El Tren " + trainId + "aún no comienza sus servicios en la hora indicada";
         }
         for (Line line : lines) {
             if (line.getId() == lineId) {
                 for (int i = 0; i < line.getSections().size(); i++) {
-
+                    
                 }
             }
         }
-
-
     }
 
 
