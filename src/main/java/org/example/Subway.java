@@ -229,7 +229,82 @@ public class Subway {
                 stationName = "En tránsito";
             }
         }
-        return "El tren se encuentra en la estación: " + stationName + " de la línea: " + lineId;
+        return "El Tren " + trainId + " a las " + time +  " se encuentra en la Estación: " + stationName + " de la Línea: " + lineId;
+    }
+
+    public List<String> trainPath (int trainId, Date time) {
+        // compruebo que el tren se encuentre en ruta y este asociada a una linea
+        int lineId = -1;
+        Date departureTime = null;
+        int arrivalStation = -1;
+        int departureStation = -1;
+        boolean isTrainInRoute = false;
+        for (Route route : routes) {
+            if (route.getTrainId() == trainId) {
+                lineId = route.getLineId();
+                departureTime = route.getDepartureTime();
+                arrivalStation = route.getArrivalStation();
+                departureStation = route.getDepartureStation();
+                isTrainInRoute = true;
+                break;
+            }
+        }
+        if (!isTrainInRoute) {
+            throw new IllegalArgumentException("No se encuentra un Tren asociado a una Ruta.");
+        } else if (lineId == -1) {
+            throw new IllegalArgumentException("No se encuentra una Línea asociada al Tren ingresado.");
+        }
+        // compruebo que el tren exista en la red de metro
+        int trainSpeed = -1;
+        int trainStationStayTime = -1;
+        boolean isTrainInSubway = false;
+        for (Train train : trains) {
+            if (train.getId() == trainId) {
+                trainSpeed = train.getSpeed();
+                trainStationStayTime = train.getStationStayTime();
+                isTrainInSubway = true;
+                break;
+            }
+        }
+        if (!isTrainInSubway) {
+            throw new IllegalArgumentException("No se encuentra un Tren asociado a la red de metro.");
+        }
+
+        // obtengo el tiempo de entrada en segundos
+        int tiempoEntrada = convertirASegundos(time);
+
+        int tiempoSalidaTren = convertirASegundos(departureTime);
+
+        int timeInRoute = tiempoEntrada - tiempoSalidaTren;
+
+        if (timeInRoute <= 0) {
+            throw new IllegalArgumentException("El tren ya completó su ruta en la hora ingresada.");
+        }
+        int timeAcc = 0;
+        List<String> estaciones = new ArrayList<>();
+        boolean start = false;
+        for (Line line : lines) {
+            if (line.getId() == lineId) {
+                List<Section> sections = line.getSections();
+                for (int i = 0; i < sections.size(); i++) {
+                    Section section = sections.get(i);
+                    if (section.getPoint1().getId() == departureStation) {
+                        start = true;
+                    }
+                    // comienzo a agregar estaciones desde la estacion de partida y cuando el tiempo transcurrido sea mayor o igual a la diferencia entre el tiempo ingresado y el tiempo de partida del tren
+                    if (timeAcc >= timeInRoute && start) {
+                        estaciones.add(section.getPoint1().getName());
+                    }
+                    // si estoy en la ultima seccion, agrego la estacion faltante del point 2
+                    if (i == sections.size() - 1 || section.getPoint1().getId() == arrivalStation) {
+                        estaciones.add(section.getPoint2().getName());
+                        break;
+                    }
+                    timeAcc = timeAcc + trainStationStayTime + section.getPoint1().getStopTime() + section.getDistance() / trainSpeed;
+                }
+            }
+        }
+        return estaciones;
     }
 
 

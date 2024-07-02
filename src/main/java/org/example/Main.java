@@ -201,15 +201,26 @@ public class Main {
         // Req. 24 whereIsTrain
         Calendar calendarConsult = new GregorianCalendar();
 
-        // Establece la hora específica: por ejemplo, 16:00:00
-        calendarConsult.set(Calendar.HOUR_OF_DAY, 16);
+        // Establece la hora específica: por ejemplo, 17:00:00
+        calendarConsult.set(Calendar.HOUR_OF_DAY, 17);
         calendarConsult.set(Calendar.MINUTE, 0);
         calendarConsult.set(Calendar.SECOND, 0);
         calendarConsult.set(Calendar.MILLISECOND, 0);
         // Obtén la fecha y hora combinadas en una instancia de Date
         Date timeConsult = calendarConsult.getTime();
 
-        String whereIsTrain = metro.whereIsTrain(0, timeConsult);
-        System.out.println("\n" + whereIsTrain);
+        String whereIsTrain1 = metro.whereIsTrain(0, timeConsult);
+        System.out.println("\n" + whereIsTrain1);
+
+        String whereIsTrain2 = metro.whereIsTrain(1, timeConsult);
+        System.out.println("\n" + whereIsTrain2);
+
+        // Req. 25 trainPath
+        List<String> trainPath1 = metro.trainPath(0, timeConsult);
+        System.out.println("\nEstaciones que le quedan por recorrer al tren 0 a las " + timeConsult + ": " + trainPath1);
+
+        List<String> trainPath2 = metro.trainPath(1, timeConsult);
+        System.out.println("\nEstaciones que le quedan por recorrer al tren 1 a las " + timeConsult + ": " + trainPath2);
+
     }
 }
