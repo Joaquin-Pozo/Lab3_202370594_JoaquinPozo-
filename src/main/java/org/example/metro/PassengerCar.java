@@ -1,4 +1,4 @@
-package org.example;
+package org.example.metro;
 
 public class PassengerCar {
     private int id;

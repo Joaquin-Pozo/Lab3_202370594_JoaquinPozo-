@@ -1,4 +1,4 @@
-package org.example;
+package org.example.metro;
 
 import java.util.Date;
 

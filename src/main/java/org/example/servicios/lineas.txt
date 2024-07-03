@@ -1,0 +1,26 @@
+Linea 1
+UIC 60 ASCE
+11
+0,Baquedano,t,330,1,USACH,r,360,100,5
+1,USACH,r,360,2,Estación Central,c,495,520,20
+2,Estación Central,c,495,3,ULA,r,650,326,18
+3,ULA,r,650,4,República,c,692,223,12
+4,República,c,692,5,Los Héroes,r,295,182,8
+5,Los Héroes,r,295,6,Toesca,c,955,309,15
+6,Toesca,c,955,7,La Moneda,r,694,121,6
+7,La Moneda,r,694,8,Cochera,c,256,159,7
+8,Cochera,c,256,9,Parque OHiggins,r,452,282,14
+9,Parque OHiggins,r,452,10,San Pablo,c,955,356,16
+10,San Pablo,c,955,11,Los Dominicos,t,264,426,19
+Linea 6
+200 R.E.
+9
+12,Cerrillos,t,269,13,Lo Valledor,r,112,26
+13,Lo Valledor,r,112,14,Pdte. Pedro Aguirre Cerda,c,552,18
+14,Pdte. Pedro Aguirre Cerda,c,552,15,Franklin,m,569,29
+15,Franklin,m,569,16,Biobío,c,482,29
+16,Biobío,c,482,17,Ñuble,r,592,12
+17,Ñuble,r,592,18,Estadio Nacional,m,782,25
+18,Estadio Nacional,m,782,19,Ñuñoa,r,953,15
+19,Ñuñoa,r,953,20,Inés de Suárez,c,781,19
+20,Inés de Suárez,c,781,21,Los Leones,t,226,52
