@@ -15,12 +15,12 @@ UIC 60 ASCE
 Linea 6
 200 R.E.
 9
-12,Cerrillos,t,269,13,Lo Valledor,r,112,26
-13,Lo Valledor,r,112,14,Pdte. Pedro Aguirre Cerda,c,552,18
-14,Pdte. Pedro Aguirre Cerda,c,552,15,Franklin,m,569,29
-15,Franklin,m,569,16,Biobío,c,482,29
-16,Biobío,c,482,17,Ñuble,r,592,12
-17,Ñuble,r,592,18,Estadio Nacional,m,782,25
-18,Estadio Nacional,m,782,19,Ñuñoa,r,953,15
-19,Ñuñoa,r,953,20,Inés de Suárez,c,781,19
-20,Inés de Suárez,c,781,21,Los Leones,t,226,52
+12,Cerrillos,t,269,13,Lo Valledor,r,112,299,26
+13,Lo Valledor,r,112,14,Pdte. Pedro Aguirre Cerda,c,552,672,18
+14,Pdte. Pedro Aguirre Cerda,c,552,15,Franklin,m,569,948,29
+15,Franklin,m,569,16,Biobío,c,482,266,29
+16,Biobío,c,482,17,Ñuble,r,592,512,12
+17,Ñuble,r,592,18,Estadio Nacional,m,782,299,25
+18,Estadio Nacional,m,782,19,Ñuñoa,r,953,729,15
+19,Ñuñoa,r,953,20,Inés de Suárez,c,781,593,19
+20,Inés de Suárez,c,781,21,Los Leones,t,226,894,52
