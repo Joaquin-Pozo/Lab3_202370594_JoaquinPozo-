@@ -25,10 +25,6 @@ public class Driver {
 
     @Override
     public String toString() {
-        return "\n{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", trainMaker='" + trainMaker + '\'' +
-                "\n}";
+        return String.format("Driver{id=%d, name='%s'}", id, name);
     }
 }

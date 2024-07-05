@@ -310,20 +310,56 @@ public class Subway {
 
     @Override
     public String toString() {
-        return "*********************************************************************************************************************************************************\n" +
-                "*********************************************************************************************************************************************************\n" +
-                "Subway: " +
-                "id = " + id +
-                ", name = '" + name + '\'' +
-                "\n*********************************************************************************************************************************************************" +
-                "\ntrains = " + trains +
-                "\n*********************************************************************************************************************************************************" +
-                "\nlines = " + lines +
-                "\n*********************************************************************************************************************************************************\n" +
-                "\ndrivers = " + drivers +
-                "\nroutes = " + routes +
-                '}' +
-                "\n*********************************************************************************************************************************************************\n" +
-                "*********************************************************************************************************************************************************\n";
+        StringBuilder sb = new StringBuilder();
+        String sectionSeparator = "\n========================================================================================\n";
+        String itemSeparator = "\n----------------------------------------------------------------------------------------\n";
+
+        sb.append("Subway Information")
+                .append(sectionSeparator)
+                .append("ID: ").append(id).append("\n")
+                .append("Name: ").append(name)
+                .append(sectionSeparator);
+
+        sb.append("Trains:").append(itemSeparator);
+        if (trains.isEmpty()) {
+            sb.append("No trains available\n");
+        } else {
+            for (Train train : trains) {
+                sb.append(train).append("\n");
+            }
+        }
+        sb.append(itemSeparator);
+
+        sb.append("Lines:").append(itemSeparator);
+        if (lines.isEmpty()) {
+            sb.append("No lines available\n");
+        } else {
+            for (Line line : lines) {
+                sb.append(line).append("\n\n");
+            }
+        }
+        sb.append(itemSeparator);
+
+        sb.append("Drivers:").append(itemSeparator);
+        if (drivers.isEmpty()) {
+            sb.append("No drivers available\n");
+        } else {
+            for (Driver driver : drivers) {
+                sb.append(driver).append("\n");
+            }
+        }
+        sb.append(itemSeparator);
+
+        sb.append("Routes:").append(itemSeparator);
+        if (routes.isEmpty()) {
+            sb.append("No routes available\n");
+        } else {
+            for (Route route : routes) {
+                sb.append(route).append("\n");
+            }
+        }
+        sb.append(sectionSeparator);
+
+        return sb.toString();
     }
 }

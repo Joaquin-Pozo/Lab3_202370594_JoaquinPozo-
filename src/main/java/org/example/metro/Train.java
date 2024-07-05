@@ -99,17 +99,15 @@ public class Train {
         return capacity;
     }
 
-
-
     @Override
     public String toString() {
-        return "\nTrain{" +
-                "id=" + id +
-                ", trainMaker='" + trainMaker + '\'' +
-                ", speed=" + speed +
-                ", stationStayTime=" + stationStayTime +
-                ", pcars=" + pcars +
-                "\n}";
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("Train{id=%d, maker='%s', speed=%d, stayTime=%d, cars=[\n", id, trainMaker, speed, stationStayTime));
+        for (PassengerCar car : pcars) {
+            sb.append("  ").append(car).append("\n");
+        }
+        sb.append("]}");
+        return sb.toString();
     }
 }
 

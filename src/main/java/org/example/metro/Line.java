@@ -119,21 +119,11 @@ public class Line {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\nLine{id=").append(id);
-        sb.append(", name='").append(name).append('\'');
-        sb.append(", railType='").append(railType).append('\'');
-        sb.append(", sections=[");
-        for (int i = 0; i < sections.size(); i++) {
-            sb.append("[Section ").append(i + 1).append(": ");
-            sb.append(sections.get(i).getPoint1().getName()).append(" -> ");
-            sb.append(sections.get(i).getPoint2().getName()).append(", ");
-            sb.append("distance=").append(sections.get(i).getDistance()).append(", ");
-            sb.append("cost=").append(sections.get(i).getCost()).append("], ");
+        sb.append(String.format("Line{id=%d, name='%s', railType='%s', sections=[\n", id, name, railType));
+        for (Section section : sections) {
+            sb.append("  ").append(section).append("\n");
         }
-        if (!sections.isEmpty()) {
-            sb.delete(sb.length() - 2, sb.length()); // Elimina la última coma y espacio
-        }
-        sb.append("]\n}");
+        sb.append("]}");
         return sb.toString();
     }
 }
