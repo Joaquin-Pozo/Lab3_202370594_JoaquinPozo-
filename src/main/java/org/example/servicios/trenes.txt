@@ -1,0 +1,44 @@
+Tren 1
+CAF
+20
+709
+6
+0, 90, NS-74, CAF, tr
+1, 120, NS-74, CAF, ct
+2, 100, NS-74, CAF, ct
+3, 130, NS-74, CAF, ct
+4, 110, NS-74, CAF, ct
+5, 90, NS-74, CAF, tr
+Tren 2
+LCK
+30
+950
+6
+6, 90, AS-62, LCK, tr
+7, 120, AS-62, LCK, ct
+8, 100, AS-62, LCK, ct
+9, 130, AS-62, LCK, ct
+10, 110, AS-62, LCK, ct
+11, 90, AS-62, LCK, tr
+Tren 3
+Bombardier
+25
+800
+4
+12, 85, NT-90, Bombardier, tr
+13, 115, NT-90, Bombardier, ct
+14, 105, NT-90, Bombardier, ct
+15, 135, NT-90, Bombardier, tr
+Tren 4
+Siemens
+35
+1020
+8
+18, 88, RT-88, Siemens, tr
+19, 118, RT-88, Siemens, ct
+20, 108, RT-88, Siemens, ct
+21, 138, RT-88, Siemens, ct
+22, 128, RT-88, Siemens, ct
+23, 98, RT-88, Siemens, ct
+24, 128, RT-88, Siemens, ct
+25, 108, RT-88, Siemens, tr
