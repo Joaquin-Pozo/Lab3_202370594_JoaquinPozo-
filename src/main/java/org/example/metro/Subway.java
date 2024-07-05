@@ -98,6 +98,11 @@ public class Subway {
         if (!trainIds.contains(trainId)) {
             throw new IllegalArgumentException("Tren inválido");
         }
+        for (Route route: routes) {
+            if (route.getTrainId() == trainId) {
+                throw new IllegalArgumentException("El train ya se encuentra asignado a una ruta");
+            }
+        }
         // asigno el tren a la linea
         routes.add(new Route(trainId, lineId));
     }
@@ -131,6 +136,9 @@ public class Subway {
 
         // asigno drivers a una ruta ya creada previamente en assignTrainToLine
         for (Route route: routes) {
+            if (route.getDriverId() == driverId) {
+                throw new IllegalArgumentException("El driver ya se encuentra asignado a un tren");
+            }
             if (route.getTrainId() == trainId) {
                 route.setDriverId(driverId);
                 route.setDepartureTime(departureTime);

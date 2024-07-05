@@ -26,25 +26,29 @@ public class Line {
     }
 
     public int lineLength() {
-        return sections.size();
+        int distancia = 0;
+        for (Section section : sections) {
+            distancia = distancia + section.getDistance();
+        }
+        return distancia;
     }
 
     public int lineSectionLength(String station1Name, String station2Name) {
         List<Section> sections = getSections();
         boolean indicador = false;
-        int len = 0;
+        int distancia = 0;
 
         for (Section section : sections) {
             if (section.getPoint1().getName().equals(station1Name)) {
                 indicador = true;
             }
             if (indicador) {
-                len++;
+                distancia = distancia + section.getDistance();
             }
             if (section.getPoint2().getName().equals(station2Name)) {
                 break;
             }
-        } return len;
+        } return distancia;
     }
 
     public int lineCost() {
