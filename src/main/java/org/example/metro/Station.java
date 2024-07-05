@@ -31,11 +31,8 @@ public class Station {
 
     @Override
     public String toString() {
-        return "Station{" +
-                "id = " + id +
-                ", name = '" + name + '\'' +
-                ", stationType = " + stationType.getType() +
-                ", stopTime = " + stopTime +
-                '}';
+        return String.format("Station{id=%d, name='%s', stationType='%s', stopTime=%d}",
+                id, name, stationType.getType(), stopTime);
     }
+
 }

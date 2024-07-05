@@ -32,6 +32,10 @@ public class Subway {
         return trains;
     }
 
+    public List<Route> getRoutes() { return routes; }
+
+    public List<Line> getLines() { return lines; }
+
     public void addTrain(Train... newTrains) {
         Set<Integer> trainIds = new HashSet<>();
 

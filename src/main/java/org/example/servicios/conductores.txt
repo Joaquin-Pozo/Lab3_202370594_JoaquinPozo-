@@ -1,0 +1,6 @@
+0, Tomás González, CAF
+1, Marcela Aravena, LCK
+2, Alicia González, Bombardier
+3, Juan Pérez, Siemens
+4, María López, Alstom
+5, Carlos Martínez, CAF

@@ -98,6 +98,31 @@ public class CargarArchivos {
         }
         return newTrains;
     }
-    
-    
+
+    public List<Driver> cargarConductores(String fileName) {
+        List<Driver> newDrivers = new ArrayList<>();
+
+        try {
+            File archivo = new File(fileName);
+            if (archivo.exists()) {
+                FileReader fr = new FileReader(archivo);
+                BufferedReader br = new BufferedReader(fr);
+                String data;
+                while ((data = br.readLine()) != null) {
+                    String[] parts = data.split(",");
+                    int id = Integer.parseInt(parts[0].trim());
+                    String name = parts[1].trim();
+                    String trainMaker = parts[2].trim();
+                    Driver newDriver = new Driver(id, name, trainMaker);
+                    newDrivers.add(newDriver);
+                }
+                br.close();
+            } else {
+                System.out.println("El archivo " + fileName + " no existe.");
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return newDrivers;
+    }
 }

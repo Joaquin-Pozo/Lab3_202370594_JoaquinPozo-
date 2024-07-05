@@ -25,6 +25,6 @@ public class Driver {
 
     @Override
     public String toString() {
-        return String.format("Driver{id=%d, name='%s'}", id, name);
+        return String.format("Driver{id=%d, name='%s', trainMaker='%s'}", id, name, trainMaker);
     }
 }

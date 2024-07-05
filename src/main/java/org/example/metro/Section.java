@@ -32,11 +32,8 @@ public class Section {
 
     @Override
     public String toString() {
-        return "Section{" +
-                "point1=" + point1.getName() +
-                ", point2=" + point2.getName() +
-                ", distance=" + distance +
-                ", cost=" + cost +
-                '}';
+        return String.format("Section{point1=%s, point2=%s, distance=%d, cost=%d}",
+                point1, point2, distance, cost);
     }
+
 }
