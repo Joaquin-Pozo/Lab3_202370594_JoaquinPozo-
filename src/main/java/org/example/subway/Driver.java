@@ -1,4 +1,4 @@
-package org.example.metro;
+package org.example.subway;
 
 public class Driver {
     private int id;
@@ -13,10 +13,6 @@ public class Driver {
 
     public int getId() {
         return id;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public String getTrainMaker() {

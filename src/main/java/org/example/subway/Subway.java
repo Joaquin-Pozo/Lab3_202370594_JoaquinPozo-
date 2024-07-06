@@ -1,4 +1,4 @@
-package org.example.metro;
+package org.example.subway;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -18,14 +18,6 @@ public class Subway {
         this.lines = new ArrayList<>();
         this.drivers = new ArrayList<>();
         this.routes = new ArrayList<>();
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public List<Train> getTrains() {

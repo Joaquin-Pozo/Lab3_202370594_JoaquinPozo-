@@ -1,4 +1,4 @@
-package org.example.metro;
+package org.example.subway;
 
 public class PassengerCar {
     private int id;
@@ -24,10 +24,6 @@ public class PassengerCar {
                 ", trainMaker='" + trainMaker + '\'' +
                 ", carType=" + carType +
                 '}';
-    }
-
-    public int getId() {
-        return id;
     }
 
     public int getPassengerCapacity() {

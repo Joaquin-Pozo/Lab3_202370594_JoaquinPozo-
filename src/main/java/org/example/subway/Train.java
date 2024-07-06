@@ -1,4 +1,4 @@
-package org.example.metro;
+package org.example.subway;
 
 import java.util.ArrayList;
 import java.util.List;

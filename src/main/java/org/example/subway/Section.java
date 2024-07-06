@@ -1,4 +1,4 @@
-package org.example.metro;
+package org.example.subway;
 
 public class Section {
 

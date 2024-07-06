@@ -1,12 +1,12 @@
-package org.example.servicios;
+package org.example.services;
 
-import org.example.metro.*;
+import org.example.subway.*;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CargarArchivos {
+public class LoadFiles {
 
     public List<Line> cargarLineas(String fileName) {
         List<Line> newLines = new ArrayList<>();

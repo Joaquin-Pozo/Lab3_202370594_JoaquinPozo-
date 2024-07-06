@@ -1,7 +1,7 @@
 package org.example;
 
-import org.example.metro.*;
-import org.example.servicios.CargarArchivos;
+import org.example.subway.*;
+import org.example.services.LoadFiles;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -25,7 +25,7 @@ public class Main {
 
             switch (opcion) {
                 case 1:
-                    CargarArchivos newFile = new CargarArchivos();
+                    LoadFiles newFile = new LoadFiles();
                     System.out.println("### Sistema Metro - Cargar información del sistema de metro ###");
                     System.out.println("1. Agregar líneas");
                     System.out.println("2. Agregar trenes con distinto número de carros");
@@ -35,7 +35,7 @@ public class Main {
                     int opcionCargar = scanner.nextInt();
                     scanner.nextLine();
                     if (opcionCargar == 1) {
-                        String fileName = "src/main/java/org/example/servicios/lineas.txt";
+                        String fileName = "src/main/java/org/example/servicios/lines.txt";
                         List<Line> lines = newFile.cargarLineas(fileName);
                         for (Line line : lines) {
                             metro.addLine(line);
@@ -43,7 +43,7 @@ public class Main {
                         System.out.println("Lineas cargadas exitosamente");
                         break;
                     } else if (opcionCargar == 2) {
-                        String fileName = "src/main/java/org/example/servicios/trenes.txt";
+                        String fileName = "src/main/java/org/example/servicios/trains.txt";
                         List<Train> trains = newFile.cargarTrenes(fileName);
                         for (Train train : trains) {
                             metro.addTrain(train);
@@ -51,7 +51,7 @@ public class Main {
                         System.out.println("Trenes cargados exitosamente");
                         break;
                     } else if (opcionCargar == 3) {
-                        String fileName = "src/main/java/org/example/servicios/conductores.txt";
+                        String fileName = "src/main/java/org/example/servicios/drivers.txt";
                         List<Driver> drivers = newFile.cargarConductores(fileName);
                         for (Driver driver : drivers) {
                             metro.addDriver(driver);
@@ -107,14 +107,15 @@ public class Main {
                     System.out.println("2. Determinar el trayecto entre una estación origen y final");
                     System.out.println("3. Determinar el costo total de recorrer una línea");
                     System.out.println("4. Determinar el costo de un trayecto entre estación origen y final");
-                    System.out.println("5. Verificar si una línea cumple con las restricciones especificadas");
-                    System.out.println("6. Añade un carro de pasajeros a un tren en la posición establecida");
-                    System.out.println("7. Remueve un carro de pasajeros de un tren en la posición establecida");
-                    System.out.println("8. Verifica si un tren cumple con las especificaciones de los carros de pasajeros.");
-                    System.out.println("9. Entrega la capacidad máxima de pasajeros de un tren");
-                    System.out.println("10. Determina la ubicación de un tren a partir de una hora indicada del día");
-                    System.out.println("11. Armar el recorrido del tren a partir de una hora especificada y que retorna la lista de estaciones futuras por recorrer");
-                    System.out.println("12. Retorno al menú de inicio");
+                    System.out.println("5. Agregar una sección a una línea");
+                    System.out.println("6. Verificar si una línea cumple con las restricciones especificadas");
+                    System.out.println("7. Añade un carro de pasajeros a un tren en la posición establecida");
+                    System.out.println("8. Remueve un carro de pasajeros de un tren en la posición establecida");
+                    System.out.println("9. Verifica si un tren cumple con las especificaciones de los carros de pasajeros.");
+                    System.out.println("10. Entrega la capacidad máxima de pasajeros de un tren");
+                    System.out.println("11. Determina la ubicación de un tren a partir de una hora indicada del día");
+                    System.out.println("12. Armar el recorrido del tren a partir de una hora especificada y que retorna la lista de estaciones futuras por recorrer");
+                    System.out.println("13. Retorno al menú de inicio");
                     int opcionInteraccion = scanner.nextInt();
                     scanner.nextLine();
                     switch (opcionInteraccion) {
@@ -194,6 +195,58 @@ public class Main {
                             }
                             break;
                         case 5:
+                            // Ingreso de la primera estacion
+                            System.out.println("Ingrese el id de la nueva estación (Point 1)");
+                            int station1Id = scanner.nextInt();
+                            scanner.nextLine();
+                            System.out.println("Ingrese el nombre de la nueva estación (Point 1)");
+                            String station1Name = scanner.nextLine();
+                            System.out.println("Ingrese el tipo de la nueva estación (Point 1)");
+                            String StringStation1Type = scanner.nextLine();
+                            StationType station1Type = new StationType(StringStation1Type);
+                            System.out.println("Ingrese el tiempo de parada de la nueva estación (Point 1)");
+                            int station1StopTime = scanner.nextInt();
+                            scanner.nextLine();
+                            Station newStation1 = new Station(station1Id, station1Name, station1Type, station1StopTime);
+                            // Ingreso de la segunda estacion
+                            System.out.println("Ingrese el id de la nueva estación (Point 2)");
+                            int station2Id = scanner.nextInt();
+                            scanner.nextLine();
+                            System.out.println("Ingrese el nombre de la nueva estación (Point 2)");
+                            String station2Name = scanner.nextLine();
+                            System.out.println("Ingrese el tipo de la nueva estación (Point 2)");
+                            String StringStation2Type = scanner.nextLine();
+                            StationType station2Type = new StationType(StringStation1Type);
+                            System.out.println("Ingrese el tiempo de parada de la nueva estación (Point 2)");
+                            int station2StopTime = scanner.nextInt();
+                            scanner.nextLine();
+                            Station newStation2 = new Station(station2Id, station2Name, station2Type, station2StopTime);
+                            // Ingreso de la nueva seccion
+                            System.out.println("Ingrese la distancia de la nueva sección");
+                            int sectionDistance = scanner.nextInt();
+                            scanner.nextLine();
+                            System.out.println("Ingrese el costo de la nueva sección");
+                            int sectionCost = scanner.nextInt();
+                            scanner.nextLine();
+                            // creacion de la nueva secciom
+                            Section section = new Section(newStation1, newStation2, sectionDistance, sectionCost);
+                            System.out.println("Ingrese el id de la línea donde desea agregar la nueva sección");
+                            int lineId0 = scanner.nextInt();
+                            scanner.nextLine();
+                            boolean properLineId = false;
+                            for (Line line : metro.getLines()) {
+                                if (lineId0 == line.getId()) {
+                                    line.lineAddSection(section);
+                                    properLineId = true;
+                                    System.out.println("Sección agregado exitosamente");
+                                    break;
+                                }
+                            }
+                            if (!properLineId) {
+                                System.out.println("El id del tren ingresado no existe en la red de metro");
+                            }
+                            break;
+                        case 6:
                             System.out.println("Ingrese el id de la línea");
                             int lineId5 = scanner.nextInt();
                             boolean properId5 = false;
@@ -213,7 +266,7 @@ public class Main {
                                 System.out.println("El id de la linea ingresada no existe en la red de metro");
                             }
                             break;
-                        case 6:
+                        case 7:
                             System.out.println("Ingrese el id del nuevo carro");
                             int pcarId = scanner.nextInt();
                             scanner.nextLine();
@@ -246,7 +299,7 @@ public class Main {
                                 System.out.println("El id del tren ingresado no existe en la red de metro");
                             }
                             break;
-                        case 7:
+                        case 8:
                             System.out.println("Ingrese la posición donde desea eliminar el carro");
                             int position2 = scanner.nextInt();
                             System.out.println("Ingrese el id del tren");
@@ -265,7 +318,7 @@ public class Main {
                                 System.out.println("El id del tren ingresado no existe en la red de metro");
                             }
                             break;
-                        case 8:
+                        case 9:
                             System.out.println("Ingrese el id del tren");
                             int trainId3 = scanner.nextInt();
                             scanner.nextLine();
@@ -285,7 +338,7 @@ public class Main {
                                 System.out.println("El id del tren ingresado no existe en la red de metro");
                             }
                             break;
-                        case 9:
+                        case 10:
                             System.out.println("Ingrese el id del tren");
                             int trainId4 = scanner.nextInt();
                             scanner.nextLine();
@@ -302,7 +355,7 @@ public class Main {
                                 System.out.println("El id del tren ingresado no existe en la red de metro");
                             }
                             break;
-                        case 10:
+                        case 11:
                             System.out.println("Ingrese el id del tren");
                             int trainId5 = scanner.nextInt();
                             scanner.nextLine();
@@ -322,7 +375,7 @@ public class Main {
                                 System.out.println("Formato de hora incorrecto. Por favor ingrese la hora en formato HH:mm:ss");
                             }
                             break;
-                        case 11:
+                        case 12:
                             System.out.println("Ingrese el id del tren");
                             int trainId6 = scanner.nextInt();
                             scanner.nextLine();
@@ -342,7 +395,7 @@ public class Main {
                                 System.out.println("Formato de hora incorrecto. Por favor ingrese la hora en formato HH:mm:ss");
                             }
                             break;
-                        case 12:
+                        case 13:
                             break;
                         default:
                             System.out.println("Opción no válida. Intente de nuevo");

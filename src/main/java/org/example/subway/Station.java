@@ -1,4 +1,4 @@
-package org.example.metro;
+package org.example.subway;
 
 public class Station {
     private int id;
@@ -19,10 +19,6 @@ public class Station {
 
     public String getName() {
         return name;
-    }
-
-    public StationType getStationType() {
-        return stationType;
     }
 
     public int getStopTime() {
