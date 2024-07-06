@@ -45,7 +45,7 @@ public class Train {
     public void addPcar(PassengerCar pcar, int position) {
         List<PassengerCar> pcars = getPcars();
         if (position < 0 || position > pcars.size()) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException("La posición ingresada es inválida");
         }
         pcars.add(position, pcar);
     }
@@ -53,7 +53,7 @@ public class Train {
     public void removePcar(Train train, int position) {
         List <PassengerCar> pcars = train.getPcars();
         if (position < 0 || position > pcars.size()) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException("La posición ingresada es inválida");
         }
         pcars.remove(position);
     }
@@ -61,7 +61,7 @@ public class Train {
     public boolean isTrain() {
         List <PassengerCar> pcars = getPcars();
         boolean isTrue = true;
-        if (pcars == null) {
+        if (pcars.isEmpty() || pcars.size() < 2) {
             return false;
         }
         PassengerCar primero = pcars.get(0);

@@ -33,12 +33,4 @@ Tren 4
 Siemens
 35
 1020
-8
-18, 88, RT-88, Siemens, tr
-19, 118, RT-88, Siemens, ct
-20, 108, RT-88, Siemens, ct
-21, 138, RT-88, Siemens, ct
-22, 128, RT-88, Siemens, ct
-23, 98, RT-88, Siemens, ct
-24, 128, RT-88, Siemens, ct
-25, 108, RT-88, Siemens, tr
+0

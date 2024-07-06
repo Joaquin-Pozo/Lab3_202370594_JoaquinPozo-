@@ -73,7 +73,7 @@ public class CargarArchivos {
                         int speed = Integer.parseInt(br.readLine());
                         int stationStayTime = Integer.parseInt(br.readLine());
                         int cantidadPcars = Integer.parseInt(br.readLine());
-                        List<PassengerCar> pcars = new ArrayList<>(cantidadPcars);
+                        List<PassengerCar> pcars = new ArrayList<>();
                         for (int j = 0; j < cantidadPcars; j++) {
                             String readPcar = br.readLine().trim();
                             String[] pcarParts = readPcar.split(",");

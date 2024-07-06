@@ -21,6 +21,10 @@ public class Line {
         }
     }
 
+    public int getId() {
+        return this.id;
+    }
+
     public List<Section> getSections() {
         return sections;
     }
@@ -28,7 +32,7 @@ public class Line {
     public int lineLength() {
         int distancia = 0;
         for (Section section : sections) {
-            distancia = distancia + section.getDistance();
+            distancia += section.getDistance();
         }
         return distancia;
     }
@@ -43,7 +47,7 @@ public class Line {
                 indicador = true;
             }
             if (indicador) {
-                distancia = distancia + section.getDistance();
+                distancia += section.getDistance();
             }
             if (section.getPoint2().getName().equals(station2Name)) {
                 break;
@@ -55,7 +59,7 @@ public class Line {
         List<Section> sections = getSections();
         int costo = 0;
         for (Section section : sections) {
-            costo = section.getCost() + costo;
+            costo += section.getCost();
         } return costo;
     }
 
@@ -84,6 +88,9 @@ public class Line {
     public boolean isLine(Line line) {
         List<Section> sections = line.getSections();
         boolean isTrue = true;
+        if (line.getSections().isEmpty()) {
+            return false;
+        }
         for (int i = 0; i < sections.size() - 1; i++) {
             String station1Name = sections.get(i).getPoint1().getName();
             String station2Name = sections.get(i).getPoint2().getName();
@@ -113,12 +120,6 @@ public class Line {
             }
         } return isTrue;
     }
-
-    public int getId() {
-        return this.id;
-    }
-
-
 
     @Override
     public String toString() {

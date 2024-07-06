@@ -24,3 +24,6 @@ Linea 6
 18, Estadio Nacional, m, 782, 19, Ñuñoa, r, 953, 729, 15
 19, Ñuñoa, r, 953, 20, Inés de Suárez, c, 781, 593, 19
 20, Inés de Suárez, c, 781, 21, Los Leones, t, 226, 894, 52
+Linea 7
+UIC 54
+0

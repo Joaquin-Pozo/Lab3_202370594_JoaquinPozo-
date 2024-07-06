@@ -44,7 +44,7 @@ public class Subway {
         }
         Set<Integer> newTrainIds = new HashSet<>();
         for (Train newTrain: newTrains) {
-            if (trainIds.contains(newTrain.getId()) || !newTrainIds.add(newTrain.getId()) || !newTrain.isTrain()) {
+            if (trainIds.contains(newTrain.getId()) || !newTrainIds.add(newTrain.getId())) {
                 throw new IllegalArgumentException("Tren inválido");
             }
         }
@@ -59,7 +59,7 @@ public class Subway {
         }
         Set<Integer> newLineIds = new HashSet<>();
         for (Line newLine: newLines) {
-            if (lineIds.contains(newLine.getId()) || !newLineIds.add(newLine.getId()) || !newLine.isLine(newLine)) {
+            if (lineIds.contains(newLine.getId()) || !newLineIds.add(newLine.getId())) {
                 throw new IllegalArgumentException("Línea inválida");
             }
         }
@@ -241,7 +241,7 @@ public class Subway {
                 stationName = "En tránsito";
             }
         }
-        return "El Tren " + trainId + " a las " + time +  " se encuentra en la Estación: " + stationName + " de la Línea: " + lineId;
+        return "El Tren " + trainId + "se encuentra en la Estación: " + stationName + " de la Línea: " + lineId;
     }
 
     public List<String> trainPath (int trainId, Date time) {
