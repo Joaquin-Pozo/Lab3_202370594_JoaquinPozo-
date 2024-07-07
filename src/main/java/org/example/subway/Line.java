@@ -124,9 +124,13 @@ public class Line {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("Line{id=%d, name='%s', railType='%s', sections=[\n", id, name, railType));
-        for (Section section : sections) {
-            sb.append("  ").append(section).append("\n");
+        sb.append(String.format("Line{id=%d, name='%s', railType='%s', sections=[", id, name, railType));
+        if (sections.isEmpty()) {
+            sb.append("No sections available");
+        } else {
+            for (Section section : sections) {
+                sb.append("\n  ").append(section);
+            }
         }
         sb.append("]}");
         return sb.toString();

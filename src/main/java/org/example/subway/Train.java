@@ -102,9 +102,13 @@ public class Train {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("Train{id=%d, maker='%s', speed=%d, stayTime=%d, cars=[\n", id, trainMaker, speed, stationStayTime));
-        for (PassengerCar car : pcars) {
-            sb.append("  ").append(car).append("\n");
+        sb.append(String.format("Train{id=%d, maker='%s', speed=%d, stayTime=%d, cars=[", id, trainMaker, speed, stationStayTime));
+        if (pcars.isEmpty()) {
+            sb.append("No passenger cars available");
+        } else {
+            for (PassengerCar car : pcars) {
+                sb.append("\n  ").append(car);
+            }
         }
         sb.append("]}");
         return sb.toString();

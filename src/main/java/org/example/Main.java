@@ -32,72 +32,74 @@ public class Main {
                     System.out.println("3. Agregar conductores");
                     System.out.println("4. Asignar un conductor a un tren y una línea");
                     System.out.println("5. Retorno al menú de inicio");
-                    int opcionCargar = scanner.nextInt();
+                    int firstOption = scanner.nextInt();
                     scanner.nextLine();
-                    if (opcionCargar == 1) {
-                        String fileName = "src/main/java/org/example/servicios/lines.txt";
-                        List<Line> lines = newFile.cargarLineas(fileName);
-                        for (Line line : lines) {
-                            metro.addLine(line);
-                        }
-                        System.out.println("Lineas cargadas exitosamente");
-                        break;
-                    } else if (opcionCargar == 2) {
-                        String fileName = "src/main/java/org/example/servicios/trains.txt";
-                        List<Train> trains = newFile.cargarTrenes(fileName);
-                        for (Train train : trains) {
-                            metro.addTrain(train);
-                        }
-                        System.out.println("Trenes cargados exitosamente");
-                        break;
-                    } else if (opcionCargar == 3) {
-                        String fileName = "src/main/java/org/example/servicios/drivers.txt";
-                        List<Driver> drivers = newFile.cargarConductores(fileName);
-                        for (Driver driver : drivers) {
-                            metro.addDriver(driver);
-                        }
-                        System.out.println("Conductores cargados exitosamente");
-                        break;
-                    } else if (opcionCargar == 4) {
-                        System.out.println("Ingrese el id del tren");
-                        int trainId = scanner.nextInt();
-                        scanner.nextLine();
-                        System.out.println("Ingrese el id de la linea");
-                        int lineId = scanner.nextInt();
-                        scanner.nextLine();
-                        metro.assignTrainToLine(trainId, lineId);
-                        System.out.println("Ingrese el id del conductor (debe tener la misma habilitación del tren)");
-                        int driverId = scanner.nextInt();
-                        scanner.nextLine();
-                        Date time = new Date();
-                        int departureStation = -1;
-                        int arrivalStation = -1;
-                        for (Line line : metro.getLines()) {
-                            if (line.getId() == lineId) {
-                                List<Section> sections = line.getSections();
-                                Section firstSection = sections.get(0);
-                                Section lastSection = sections.get(sections.size() - 1);
-                                departureStation = firstSection.getPoint1().getId();
-                                arrivalStation = lastSection.getPoint2().getId();
-                                break;
+                    switch (firstOption) {
+                        case 1:
+                            String linesFile = "src/main/java/org/example/services/lines.txt";
+                            List<Line> lines = newFile.cargarLineas(linesFile);
+                            for (Line line : lines) {
+                                metro.addLine(line);
                             }
-                        }
-                        metro.assignDriverToTrain(trainId, driverId, time, departureStation, arrivalStation);
-                        System.out.println("Conductor asignado exitosamente");
-                        break;
-                    } else if (opcionCargar == 5) {
-                        break;
-                    } else {
-                        System.out.println("Opción no válida. Intente de nuevo");
-                        break;
+                            System.out.println("Lineas cargadas exitosamente");
+                            break;
+                        case 2:
+                            String trainsFile = "src/main/java/org/example/services/trains.txt";
+                            List<Train> trains = newFile.cargarTrenes(trainsFile);
+                            for (Train train : trains) {
+                                metro.addTrain(train);
+                            }
+                            System.out.println("Trenes cargados exitosamente");
+                            break;
+                        case 3:
+                            String driversFile = "src/main/java/org/example/services/drivers.txt";
+                            List<Driver> drivers = newFile.cargarConductores(driversFile);
+                            for (Driver driver : drivers) {
+                                metro.addDriver(driver);
+                            }
+                            System.out.println("Conductores cargados exitosamente");
+                            break;
+                        case 4:
+                            System.out.println("Ingrese el id del tren");
+                            int trainId = scanner.nextInt();
+                            scanner.nextLine();
+                            System.out.println("Ingrese el id de la linea");
+                            int lineId = scanner.nextInt();
+                            scanner.nextLine();
+                            metro.assignTrainToLine(trainId, lineId);
+                            System.out.println("Ingrese el id del conductor (debe tener la misma habilitación del tren)");
+                            int driverId = scanner.nextInt();
+                            scanner.nextLine();
+                            Date time = new Date();
+                            int departureStation = -1;
+                            int arrivalStation = -1;
+                            for (Line line : metro.getLines()) {
+                                if (line.getId() == lineId) {
+                                    List<Section> sections = line.getSections();
+                                    Section firstSection = sections.get(0);
+                                    Section lastSection = sections.get(sections.size() - 1);
+                                    departureStation = firstSection.getPoint1().getId();
+                                    arrivalStation = lastSection.getPoint2().getId();
+                                    break;
+                                }
+                            }
+                            metro.assignDriverToTrain(trainId, driverId, time, departureStation, arrivalStation);
+                            System.out.println("Conductor asignado exitosamente");
+                            break;
+                        case 5:
+                            break;
+                        default:
+                            System.out.println("Opción no válida. Intente de nuevo");
+                            break;
                     }
+                    break;
                 case 2:
                     System.out.println("### Sistema Metro - Visualización del estado actual del sistema de metros ###");
                     System.out.println("1. Desplegar en pantalla el estado actual de la red de metros");
                     System.out.println("2. Retorno al menú de inicio");
-                    int opcionVisualizar = scanner.nextInt();
+                    int secondOption = scanner.nextInt();
                     scanner.nextLine();
-                    if (opcionVisualizar == 1) {
+                    if (secondOption == 1) {
                         System.out.println(metro);
                     }
                     break;
@@ -108,17 +110,17 @@ public class Main {
                     System.out.println("3. Determinar el costo total de recorrer una línea");
                     System.out.println("4. Determinar el costo de un trayecto entre estación origen y final");
                     System.out.println("5. Agregar una sección a una línea");
-                    System.out.println("6. Verificar si una línea cumple con las restricciones especificadas");
+                    System.out.println("6. Verificar si una línea cumple con las restricciones especificadas para conformar una linea");
                     System.out.println("7. Añade un carro de pasajeros a un tren en la posición establecida");
                     System.out.println("8. Remueve un carro de pasajeros de un tren en la posición establecida");
-                    System.out.println("9. Verifica si un tren cumple con las especificaciones de los carros de pasajeros.");
+                    System.out.println("9. Verifica si un tren cumple con las especificaciones de los carros de pasajeros");
                     System.out.println("10. Entrega la capacidad máxima de pasajeros de un tren");
                     System.out.println("11. Determina la ubicación de un tren a partir de una hora indicada del día");
                     System.out.println("12. Armar el recorrido del tren a partir de una hora especificada y que retorna la lista de estaciones futuras por recorrer");
                     System.out.println("13. Retorno al menú de inicio");
-                    int opcionInteraccion = scanner.nextInt();
+                    int thirdOption = scanner.nextInt();
                     scanner.nextLine();
-                    switch (opcionInteraccion) {
+                    switch (thirdOption) {
                         case 1:
                             System.out.println("Ingrese el id de la línea");
                             int lineId1 = scanner.nextInt();
@@ -155,7 +157,6 @@ public class Main {
                             if (!properId2) {
                                 System.out.println("El id de la linea ingresada no existe en la red de metro");
                             }
-
                             break;
                         case 3:
                             System.out.println("Ingrese el id de la línea");
@@ -201,7 +202,7 @@ public class Main {
                             scanner.nextLine();
                             System.out.println("Ingrese el nombre de la nueva estación (Point 1)");
                             String station1Name = scanner.nextLine();
-                            System.out.println("Ingrese el tipo de la nueva estación (Point 1)");
+                            System.out.println("Ingrese el tipo de la nueva estación, r (regular), m (mantencion), c (combinacion), o t (terminal) (Point 1)");
                             String StringStation1Type = scanner.nextLine();
                             StationType station1Type = new StationType(StringStation1Type);
                             System.out.println("Ingrese el tiempo de parada de la nueva estación (Point 1)");
@@ -216,7 +217,7 @@ public class Main {
                             String station2Name = scanner.nextLine();
                             System.out.println("Ingrese el tipo de la nueva estación (Point 2)");
                             String StringStation2Type = scanner.nextLine();
-                            StationType station2Type = new StationType(StringStation1Type);
+                            StationType station2Type = new StationType(StringStation2Type);
                             System.out.println("Ingrese el tiempo de parada de la nueva estación (Point 2)");
                             int station2StopTime = scanner.nextInt();
                             scanner.nextLine();
@@ -399,6 +400,7 @@ public class Main {
                             break;
                         default:
                             System.out.println("Opción no válida. Intente de nuevo");
+                            break;
                     }
                     break;
                 case 4:
@@ -406,6 +408,7 @@ public class Main {
                     break;
                 default:
                     System.out.println("Opción no válida. Intente de nuevo");
+                    break;
             }
         }
         scanner.close();
