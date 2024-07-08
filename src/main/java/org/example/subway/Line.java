@@ -10,6 +10,13 @@ public class Line {
     private String railType;
     private List<Section> sections;
 
+    /**
+     * metodo constructor
+     * @param id
+     * @param name
+     * @param railType
+     * @param sections
+     */
     public Line(int id, String name, String railType, List<Section> sections) {
         this.id = id;
         this.name = name;
@@ -21,14 +28,26 @@ public class Line {
         }
     }
 
+    /**
+     * metodo para obtener id
+     * @return
+     */
     public int getId() {
         return this.id;
     }
 
+    /**
+     * metodo para obtener lista de secciones
+     * @return
+     */
     public List<Section> getSections() {
         return sections;
     }
 
+    /**
+     * metodo para obtener la distancia total de una linea
+     * @return
+     */
     public int lineLength() {
         int distancia = 0;
         for (Section section : sections) {
@@ -37,6 +56,12 @@ public class Line {
         return distancia;
     }
 
+    /**
+     * metodo para obtener la distancia entre una estación de partida y una estación de llegada
+     * @param station1Name
+     * @param station2Name
+     * @return
+     */
     public int lineSectionLength(String station1Name, String station2Name) {
         List<Section> sections = getSections();
         boolean indicador = false;
@@ -55,6 +80,10 @@ public class Line {
         } return distancia;
     }
 
+    /**
+     * metodo para obtener el costo total de recorrer una linea
+     * @return
+     */
     public int lineCost() {
         List<Section> sections = getSections();
         int costo = 0;
@@ -63,6 +92,12 @@ public class Line {
         } return costo;
     }
 
+    /**
+     * metodo para obtener el costo de recorrer desde una estacion de llegada a una estacion de partida
+     * @param station1Name
+     * @param station2Name
+     * @return
+     */
     public int lineSectionCost(String station1Name, String station2Name) {
         List<Section> sections = getSections();
         boolean indicador = false;
@@ -81,10 +116,19 @@ public class Line {
         } return costo;
     }
 
+    /**
+     * metodo para agregar una seccion
+     * @param section
+     */
     public void lineAddSection(Section section) {
         sections.add(section);
     }
 
+    /**
+     * metodo para verificar si una linea cumple con los requisitos para conformar una linea
+     * @param line
+     * @return
+     */
     public boolean isLine(Line line) {
         List<Section> sections = line.getSections();
         boolean isTrue = true;
@@ -121,6 +165,10 @@ public class Line {
         } return isTrue;
     }
 
+    /**
+     * metodo para mostrar la linea por pantalla
+     * @return
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

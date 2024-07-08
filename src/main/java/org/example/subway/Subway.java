@@ -11,6 +11,11 @@ public class Subway {
     private List<Driver> drivers;
     private List<Route> routes;
 
+    /**
+     * metodo constructor
+     * @param id
+     * @param name
+     */
     public Subway(int id, String name) {
         this.id = id;
         this.name = name;
@@ -20,14 +25,24 @@ public class Subway {
         this.routes = new ArrayList<>();
     }
 
+    /**
+     * metodo para obtener lista de trenes
+     * @return
+     */
     public List<Train> getTrains() {
         return trains;
     }
 
-    public List<Route> getRoutes() { return routes; }
-
+    /**
+     * metodo para obtener lista de lineas
+     * @return
+     */
     public List<Line> getLines() { return lines; }
 
+    /**
+     * metodo para agregar n lineas a la red de metro
+     * @param newTrains
+     */
     public void addTrain(Train... newTrains) {
         Set<Integer> trainIds = new HashSet<>();
 
@@ -43,6 +58,10 @@ public class Subway {
         trains.addAll(List.of(newTrains));
     }
 
+    /**
+     * metodo para agregar n lineas a la red de metro
+     * @param newLines
+     */
     public void addLine(Line... newLines) {
         Set<Integer> lineIds = new HashSet<>();
 
@@ -58,6 +77,10 @@ public class Subway {
         lines.addAll(List.of(newLines));
     }
 
+    /**
+     * metodo para agregar n drivers a la red de metro
+     * @param newDrivers
+     */
     public void addDriver(Driver... newDrivers) {
         Set<Integer> driverIds = new HashSet<>();
 
@@ -73,14 +96,19 @@ public class Subway {
         drivers.addAll(List.of(newDrivers));
     }
 
+    /**
+     * metodo para asignar un tren a una linea
+     * @param trainId
+     * @param lineId
+     */
     public void assignTrainToLine(int trainId, int lineId) {
-        // compruebo que exista el id de la linea ingresado
+        // compruebo que exista el id de la linea ingresada
         Set<Integer> lineIds = new HashSet<>();
         for (Line line : lines) {
             lineIds.add(line.getId());
         }
         if (!lineIds.contains(lineId)) {
-            throw new IllegalArgumentException("Línea inválida");
+            throw new IllegalArgumentException("Línea con id repetido");
         }
         // compruebo que exista el id del tren ingresado
         Set<Integer> trainIds = new HashSet<>();
@@ -99,6 +127,14 @@ public class Subway {
         routes.add(new Route(trainId, lineId));
     }
 
+    /**
+     * metodo para asignar un conductor a un tren
+     * @param trainId
+     * @param driverId
+     * @param departureTime
+     * @param departureStation
+     * @param arrivalStation
+     */
     public void assignDriverToTrain(int trainId, int driverId, Date departureTime, int departureStation, int arrivalStation) {
 
         String trainMaker = "";
@@ -140,6 +176,11 @@ public class Subway {
         }
     }
 
+    /**
+     * metodo para convertir un tiempo de tipo dato Date a segundos
+     * @param time
+     * @return
+     */
     public int convertirASegundos (Date time) {
         // convertir el tiempo de entrada a String y luego a segundos
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
@@ -154,6 +195,12 @@ public class Subway {
         return hrs * 3600 + min * 60 + seg;
     }
 
+    /**
+     * metodo para obtener la estacion en la que se encuentra un tren en ruta a una hora especificada
+     * @param trainId
+     * @param time
+     * @return
+     */
     public String whereIsTrain(int trainId, Date time) {
         // compruebo que el tren se encuentre en ruta y este asociada a una linea
         int lineId = -1;
@@ -236,6 +283,12 @@ public class Subway {
         return "El Tren " + trainId + "se encuentra en la Estación: " + stationName + " de la Línea: " + lineId;
     }
 
+    /**
+     * metodo para obtener las estaciones que le quedan por recorrer al tren en ruta en una hora especificada
+     * @param trainId
+     * @param time
+     * @return
+     */
     public List<String> trainPath (int trainId, Date time) {
         // compruebo que el tren se encuentre en ruta y este asociada a una linea
         int lineId = -1;
@@ -311,7 +364,10 @@ public class Subway {
         return estaciones;
     }
 
-
+    /**
+     * metodo para mostrar la red de metro por pantalla
+     * @return
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

@@ -10,6 +10,14 @@ public class Train {
     private int stationStayTime;
     private List<PassengerCar> pcars;
 
+    /**
+     * metodo constructor
+     * @param id
+     * @param trainMaker
+     * @param speed
+     * @param stationStayTime
+     * @param pcars
+     */
     public Train(int id, String trainMaker, int speed, int stationStayTime, List<PassengerCar> pcars) {
         this.id = id;
         this.trainMaker = trainMaker;
@@ -22,26 +30,51 @@ public class Train {
         }
     }
 
+    /**
+     * metodo para obtener lista de carros
+     * @return
+     */
     public List<PassengerCar> getPcars() {
         return pcars;
     }
 
+    /**
+     * metodo para obtener id
+     * @return
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * metodo para obtener fabricante
+     * @return
+     */
     public String getTrainMaker() {
         return trainMaker;
     }
 
+    /**
+     * metodo para obtener velocidad
+     * @return
+     */
     public int getSpeed() {
         return speed;
     }
 
+    /**
+     * metodo para obtener tiempo de parada por estacion
+     * @return
+     */
     public int getStationStayTime() {
         return stationStayTime;
     }
 
+    /**
+     * metodo para agregar un carro en una posicion especificada
+     * @param pcar
+     * @param position
+     */
     public void addPcar(PassengerCar pcar, int position) {
         List<PassengerCar> pcars = getPcars();
         if (position < 0 || position > pcars.size()) {
@@ -50,6 +83,11 @@ public class Train {
         pcars.add(position, pcar);
     }
 
+    /**
+     * metodo para eliminar un carro en una posicion especificada
+     * @param train
+     * @param position
+     */
     public void removePcar(Train train, int position) {
         List <PassengerCar> pcars = train.getPcars();
         if (position < 0 || position > pcars.size()) {
@@ -58,6 +96,10 @@ public class Train {
         pcars.remove(position);
     }
 
+    /**
+     * metodo para verificar si un tren cumple con los requisitos para conformar un tren
+     * @return
+     */
     public boolean isTrain() {
         List <PassengerCar> pcars = getPcars();
         boolean isTrue = true;
@@ -90,6 +132,10 @@ public class Train {
         return isTrue;
     }
 
+    /**
+     * metodo para obtener la capacidad total de un tren
+     * @return
+     */
     public int fetchCapacity() {
         List<PassengerCar> pcars = getPcars();
         int capacity = 0;
@@ -99,6 +145,10 @@ public class Train {
         return capacity;
     }
 
+    /**
+     * metodo para mostrar un tren por pantalla
+     * @return
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

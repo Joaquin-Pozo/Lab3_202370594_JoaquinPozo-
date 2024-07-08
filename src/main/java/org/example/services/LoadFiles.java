@@ -7,7 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LoadFiles {
-
+    /**
+     * metodo para cargar el archivo lines.txt
+     * @param fileName
+     * @return
+     */
     public List<Line> cargarLineas(String fileName) {
         List<Line> newLines = new ArrayList<>();
 
@@ -56,6 +60,11 @@ public class LoadFiles {
         return newLines;
     }
 
+    /**
+     * metodo para cargar el archivo trains.txt
+     * @param fileName
+     * @return
+     */
     public List<Train> cargarTrenes(String fileName) {
         List<Train> newTrains = new ArrayList<>();
 
@@ -99,6 +108,11 @@ public class LoadFiles {
         return newTrains;
     }
 
+    /**
+     * metodo para cargar el archivo drivers.txt
+     * @param fileName
+     * @return
+     */
     public List<Driver> cargarConductores(String fileName) {
         List<Driver> newDrivers = new ArrayList<>();
 

@@ -7,6 +7,14 @@ public class PassengerCar {
     private String trainMaker;
     private CarType carType;
 
+    /**
+     * metodo constructor
+     * @param id
+     * @param passengerCapacity
+     * @param model
+     * @param trainMaker
+     * @param carType
+     */
     public PassengerCar(int id, int passengerCapacity, String model, String trainMaker, CarType carType) {
         this.id = id;
         this.passengerCapacity = passengerCapacity;
@@ -15,6 +23,42 @@ public class PassengerCar {
         this.carType = carType;
     }
 
+    /**
+     * metodo para obtener la capacidad del carro
+     * @return
+     */
+    public int getPassengerCapacity() {
+        return passengerCapacity;
+    }
+
+    /**
+     * metodo para obtener el modelo del carro
+     * @return
+     */
+    public String getModel() {
+        return model;
+    }
+
+    /**
+     * metodo para obtener el fabricante del carro
+     * @return
+     */
+    public String getTrainMaker() {
+        return trainMaker;
+    }
+
+    /**
+     * metodo para obtener el tipo de carro
+     * @return
+     */
+    public CarType getCarType() {
+        return carType;
+    }
+
+    /**
+     * metodo para mostrar un carro por pantalla
+     * @return
+     */
     @Override
     public String toString() {
         return "{" +
@@ -24,21 +68,5 @@ public class PassengerCar {
                 ", trainMaker='" + trainMaker + '\'' +
                 ", carType=" + carType +
                 '}';
-    }
-
-    public int getPassengerCapacity() {
-        return passengerCapacity;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public String getTrainMaker() {
-        return trainMaker;
-    }
-
-    public CarType getCarType() {
-        return carType;
     }
 }
